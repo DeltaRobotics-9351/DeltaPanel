@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'com.deltarobotics9351.deltautils.deltapanel'
+version 'BETA'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+
+}
+
+dependencies {
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+    implementation 'org.nanohttpd:nanohttpd-websocket:2.3.1'
+}

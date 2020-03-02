@@ -1,0 +1,37 @@
+
+        .containerS{
+            width: 85%;
+            margin: -30px;
+            overflow: hidden;
+            margin-top: 5px;
+            position: absolute;
+        }
+
+        .containerS ul{
+            padding: 0px;
+            margin: 0px
+        }
+
+        .containerS ul li{
+            float: left;
+            list-style: none;
+            width: 20%;
+            height: 185px;
+            background: #f1f1f1;
+            margin: 10px 0px 10px 45px;
+            border: 2px;
+            box-sizing: border-box;
+            padding-left: 25px;
+        }
+
+        .containerS ul li:hover{
+             background:#f4f4f4;
+       }
+
+       @media screen and (max-width:1250px){
+            .containerS ul li{
+                width: 35%;
+                height: 30%;
+                margin-left: 10px;
+            }
+       }
