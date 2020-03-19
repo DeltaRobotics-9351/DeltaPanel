@@ -21,8 +21,12 @@ socket.onopen = function(e) {
 };
 
 socket.onmessage = function(event) {
-  if(event.data === "pong"){
-    socket.send("ping");
+
+
+  if(event.data === "pong"){ socket.send("ping:gamepad"); }
+
+  if(event.data === "pong:gamepad"){
+    socket.send("ping:gamepad");
     ping = performance.now() - ping;
 
     if(nextPingUpdate < performance.now()){
@@ -39,7 +43,15 @@ socket.onmessage = function(event) {
 
     setTimeout(function(){ socket.send("users:7649"); }, 2000);
 
+  }else if(event.data === "close:alreadyclient"){
+
+    socket.close();
+    confirm("There is another client already connected to the Control Panel.\nTo avoid instability, you have been disconnected from the server.\nYou'll be redirected to the home page.");
+
+    window.location.href = "/home.html";
+
   }else{
+
 
     var split = event.data.split(":");
 
@@ -61,7 +73,7 @@ socket.onclose = function(event) {
     // e.g. server process killed or network down
     // event.code is usually 1006 in this case
     document.getElementById("socket_status").innerHTML = "Disconnected unexpectedly";
-   location.reload();
+    location.reload();
   }
 
 };
@@ -217,6 +229,12 @@ window.addEventListener("gamepaddisconnected", function(e){
     if(e === startBIndex){ unlinkStartB(); }
 
 });
+
+window.onbeforeunload = function() {
+      socket.send("gamepadA:unlinked");
+      socket.send("gamepadB:unlinked");
+      //socket.close();
+};
 
 function linkStartA(index){
     document.getElementById("StartA").innerHTML = "Start A: Linked";

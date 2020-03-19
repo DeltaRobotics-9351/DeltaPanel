@@ -62,7 +62,7 @@ declare module Blockly {
   }
 
   interface BlocklyThemeOptions {
-    blockStyles?: {[blocks: string]: Blockly.Theme.BlockStyle;};
+    blockStyles?: {[com.deltarobotics9351.deltapanel.blocks: string]: Blockly.Theme.BlockStyle;};
     categoryStyles?: {[category: string]: Blockly.Theme.CategoryStyle;};
     componentStyles?: {[component: string]: any;};
   }
@@ -203,7 +203,7 @@ declare module Blockly {
             inputsInlineDefault: boolean|any /*undefined*/;
     
             /**
-             * Optional text data that round-trips between blocks and XML.
+             * Optional text data that round-trips between com.deltarobotics9351.deltapanel.blocks and XML.
              * Has no effect. May be used by 3rd parties for meta information.
              * @type {?string}
              */
@@ -310,14 +310,14 @@ declare module Blockly {
             getConnections_(_all: boolean): Blockly.Connection[];
     
             /**
-             * Walks down a stack of blocks and finds the last next connection on the stack.
+             * Walks down a stack of com.deltarobotics9351.deltapanel.blocks and finds the last next connection on the stack.
              * @return {Blockly.Connection} The last next connection on the stack, or null.
              * @package
              */
             lastConnectionInStack(): Blockly.Connection;
     
             /**
-             * Bump unconnected blocks out of alignment.  Two blocks which aren't actually
+             * Bump unconnected com.deltarobotics9351.deltapanel.blocks out of alignment.  Two com.deltarobotics9351.deltapanel.blocks which aren't actually
              * connected should not coincidentally line up on screen.
              */
             bumpNeighbours(): void;
@@ -371,7 +371,7 @@ declare module Blockly {
             getRootBlock(): Blockly.Block;
     
             /**
-             * Walk up from the given block up through the stack of blocks to find
+             * Walk up from the given block up through the stack of com.deltarobotics9351.deltapanel.blocks to find
              * the top block of the sub stack. If we are nested in a statement input only
              * find the top-most nested block. Do not go all the way to the root block.
              * @return {!Blockly.Block} The top block in a stack.
@@ -380,12 +380,12 @@ declare module Blockly {
             getTopStackBlock(): Blockly.Block;
     
             /**
-             * Find all the blocks that are directly nested inside this one.
+             * Find all the com.deltarobotics9351.deltapanel.blocks that are directly nested inside this one.
              * Includes value and statement inputs, as well as any following statement.
              * Excludes any connection on an output tab or any preceding statement.
              * Blocks are optionally sorted by position; top to bottom.
              * @param {boolean} ordered Sort the list if true.
-             * @return {!Array.<!Blockly.Block>} Array of blocks.
+             * @return {!Array.<!Blockly.Block>} Array of com.deltarobotics9351.deltapanel.blocks.
              */
             getChildren(ordered: boolean): Blockly.Block[];
     
@@ -396,13 +396,13 @@ declare module Blockly {
             setParent(newParent: Blockly.Block): void;
     
             /**
-             * Find all the blocks that are directly or indirectly nested inside this one.
+             * Find all the com.deltarobotics9351.deltapanel.blocks that are directly or indirectly nested inside this one.
              * Includes this block in the list.
              * Includes value and statement inputs, as well as any following statements.
              * Excludes any connection on an output tab or any preceding statements.
              * Blocks are optionally sorted by position; top to bottom.
              * @param {boolean} ordered Sort the list if true.
-             * @return {!Array.<!Blockly.Block>} Flattened array of blocks.
+             * @return {!Array.<!Blockly.Block>} Flattened array of com.deltarobotics9351.deltapanel.blocks.
              */
             getDescendants(ordered: boolean): Blockly.Block[];
     
@@ -841,9 +841,9 @@ declare module Blockly {
     
             /**
              * Recursively checks whether all statement and value inputs are filled with
-             * blocks. Also checks all following statement blocks in this stack.
+             * com.deltarobotics9351.deltapanel.blocks. Also checks all following statement com.deltarobotics9351.deltapanel.blocks in this stack.
              * @param {boolean=} opt_shadowBlocksAreFilled An optional argument controlling
-             *     whether shadow blocks are counted as filled. Defaults to true.
+             *     whether shadow com.deltarobotics9351.deltapanel.blocks are counted as filled. Defaults to true.
              * @return {boolean} True if all inputs are filled, false otherwise.
              */
             allInputsFilled(opt_shadowBlocksAreFilled?: boolean): boolean;
@@ -854,7 +854,7 @@ declare module Blockly {
              *
              * Intended to on be used in console logs and errors. If you need a string that
              * uses the user's native language (including block text, field values, and
-             * child blocks), use [toString()]{@link Blockly.Block#toString}.
+             * child com.deltarobotics9351.deltapanel.blocks), use [toString()]{@link Blockly.Block#toString}.
              * @return {string} The description.
              */
             toDevString(): string;
@@ -930,12 +930,12 @@ declare module Blockly {
             createDom(): void;
     
             /**
-             * Set the SVG blocks on the drag surface's group and show the surface.
+             * Set the SVG com.deltarobotics9351.deltapanel.blocks on the drag surface's group and show the surface.
              * Only one block group should be on the drag surface at a time.
-             * @param {!SVGElement} blocks Block or group of blocks to place on the drag
+             * @param {!SVGElement} com.deltarobotics9351.deltapanel.blocks Block or group of com.deltarobotics9351.deltapanel.blocks to place on the drag
              * surface.
              */
-            setBlocksAndShow(blocks: SVGElement): void;
+            setBlocksAndShow(com.deltarobotics9351.deltapanel.blocks: SVGElement): void;
     
             /**
              * Translate and scale the entire drag surface group to the given position, to
@@ -948,7 +948,7 @@ declare module Blockly {
     
             /**
              * Translate the entire drag surface during a drag.
-             * We translate the drag surface instead of the blocks inside the surface
+             * We translate the drag surface instead of the com.deltarobotics9351.deltapanel.blocks inside the surface
              * so that the browser avoids repainting the SVG.
              * Because of this, the drag coordinates must be adjusted by scale.
              * @param {number} x X translation for the entire surface.
@@ -958,7 +958,7 @@ declare module Blockly {
     
             /**
              * Reports the surface translation in scaled workspace coordinates.
-             * Use this when finishing a drag to return blocks to the correct position.
+             * Use this when finishing a drag to return com.deltarobotics9351.deltapanel.blocks to the correct position.
              * @return {!Blockly.utils.Coordinate} Current translation of the surface.
              */
             getSurfaceTranslation(): Blockly.utils.Coordinate;
@@ -971,20 +971,20 @@ declare module Blockly {
             getGroup(): SVGElement;
     
             /**
-             * Get the current blocks on the drag surface, if any (primarily
+             * Get the current com.deltarobotics9351.deltapanel.blocks on the drag surface, if any (primarily
              * for BlockSvg.getRelativeToSurfaceXY).
-             * @return {Element} Drag surface block DOM element, or undefined if no blocks
+             * @return {Element} Drag surface block DOM element, or undefined if no com.deltarobotics9351.deltapanel.blocks
              * exist.
              */
             getCurrentBlock(): Element;
     
             /**
-             * Clear the group and hide the surface; move the blocks off onto the provided
+             * Clear the group and hide the surface; move the com.deltarobotics9351.deltapanel.blocks off onto the provided
              * element.
              * If the block is being deleted it doesn't need to go back to the original
              * surface, since it would be removed immediately during dispose.
-             * @param {Element=} opt_newSurface Surface the dragging blocks should be moved
-             *     to, or null if the blocks should be removed from this surface without
+             * @param {Element=} opt_newSurface Surface the dragging com.deltarobotics9351.deltapanel.blocks should be moved
+             *     to, or null if the com.deltarobotics9351.deltapanel.blocks should be removed from this surface without
              *     being moved to a different surface.
              */
             clearAndHide(opt_newSurface?: Element): void;
@@ -1000,7 +1000,7 @@ declare module Blockly {
     class BlockDragger__Class  { 
     
             /**
-             * Class for a block dragger.  It moves blocks around the workspace when they
+             * Class for a block dragger.  It moves com.deltarobotics9351.deltapanel.blocks around the workspace when they
              * are being dragged by a mouse or touch.
              * @param {!Blockly.BlockSvg} block The block to drag.
              * @param {!Blockly.WorkspaceSvg} workspace The workspace to drag on.
@@ -1047,7 +1047,7 @@ declare module Blockly {
              * Get a list of the insertion markers that currently exist.  Drags have 0, 1,
              * or 2 insertion markers.
              * @return {!Array.<!Blockly.BlockSvg>} A possibly empty list of insertion
-             *     marker blocks.
+             *     marker com.deltarobotics9351.deltapanel.blocks.
              * @package
              */
             getInsertionMarkers(): Blockly.BlockSvg[];
@@ -1373,13 +1373,13 @@ declare module Blockly {
             previousConnection: Blockly.RenderedConnection;
     
             /**
-             * Height of this block, not including any statement blocks above or below.
+             * Height of this block, not including any statement com.deltarobotics9351.deltapanel.blocks above or below.
              * Height is in workspace units.
              */
             height: any /*missing*/;
     
             /**
-             * Width of this block, including any connected value blocks.
+             * Width of this block, including any connected value com.deltarobotics9351.deltapanel.blocks.
              * Width is in workspace units.
              */
             width: any /*missing*/;
@@ -1388,7 +1388,7 @@ declare module Blockly {
              * An optional method called when a mutator dialog is first opened.
              * This function must create and initialize a top-level block for the mutator
              * dialog, and return it. This function should also populate this top-level
-             * block with any sub-blocks which are appropriate. This method must also be
+             * block with any sub-com.deltarobotics9351.deltapanel.blocks which are appropriate. This method must also be
              * coupled with defining a `compose` method for the default mutation dialog
              * button and UI to appear.
              * @type {?function(Blockly.WorkspaceSvg):!Blockly.BlockSvg}
@@ -1510,7 +1510,7 @@ declare module Blockly {
     
             /**
              * Move this block during a drag, taking into account whether we are using a
-             * drag surface to translate blocks.
+             * drag surface to translate com.deltarobotics9351.deltapanel.blocks.
              * This block must be a top-level block.
              * @param {!Blockly.utils.Coordinate} newLoc The location to translate to, in
              *     workspace coordinates.
@@ -1525,7 +1525,7 @@ declare module Blockly {
     
             /**
              * Returns the coordinates of a bounding box describing the dimensions of this
-             * block and any blocks stacked below it.
+             * block and any com.deltarobotics9351.deltapanel.blocks stacked below it.
              * Coordinate system: workspace coordinates.
              * @return {!Blockly.utils.Rect} Object with coordinates of the bounding box.
              */
@@ -1571,7 +1571,7 @@ declare module Blockly {
             showContextMenu(e: Event): void;
     
             /**
-             * Move the connections for this block and all blocks attached under it.
+             * Move the connections for this block and all com.deltarobotics9351.deltapanel.blocks attached under it.
              * Also update any attached bubbles.
              * @param {number} dx Horizontal offset from current location, in workspace
              *     units.
@@ -1683,7 +1683,7 @@ declare module Blockly {
     
             /**
              * Set whether the block is highlighted or not.  Block highlighting is
-             * often used to visually mark blocks currently being executed.
+             * often used to visually mark com.deltarobotics9351.deltapanel.blocks currently being executed.
              * @param {boolean} highlighted True if highlighted.
              */
             setHighlighted(highlighted: boolean): void;
@@ -1729,7 +1729,7 @@ declare module Blockly {
              * Move this block to the front of the visible workspace.
              * <g> tags do not respect z-index so SVG renders them in the
              * order that they are in the DOM.  By placing this block first within the
-             * block group's <g>, it will render on top of any other blocks.
+             * block group's <g>, it will render on top of any other com.deltarobotics9351.deltapanel.blocks.
              * @package
              */
             bringToFront(): void;
@@ -1811,7 +1811,7 @@ declare module Blockly {
             makeConnection_(type: number): Blockly.RenderedConnection;
     
             /**
-             * Bump unconnected blocks out of alignment.  Two blocks which aren't actually
+             * Bump unconnected com.deltarobotics9351.deltapanel.blocks out of alignment.  Two com.deltarobotics9351.deltapanel.blocks which aren't actually
              * connected should not coincidentally line up on screen.
              */
             bumpNeighbours(): void;
@@ -1861,7 +1861,7 @@ declare module Blockly {
     
             /**
              * Returns a bounding box describing the dimensions of this block
-             * and any blocks stacked below it.
+             * and any com.deltarobotics9351.deltapanel.blocks stacked below it.
              * @return {!{height: number, width: number}} Object with height and width
              *    properties in workspace units.
              * @package
@@ -1934,7 +1934,7 @@ declare module Blockly {
     var selected: Blockly.Block;
 
     /**
-     * All of the connections on blocks that are currently being dragged.
+     * All of the connections on com.deltarobotics9351.deltapanel.blocks that are currently being dragged.
      * @type {!Array.<!Blockly.Connection>}
      * @package
      */
@@ -2029,7 +2029,7 @@ declare module Blockly {
     function prompt(message: string, defaultValue: string, callback: { (_0: string): any /*missing*/ }): void;
 
     /**
-     * Define blocks from an array of JSON block definitions, as might be generated
+     * Define com.deltarobotics9351.deltapanel.blocks from an array of JSON block definitions, as might be generated
      * by the Blockly Developer Tools.
      * @param {!Array.<!Object>} jsonArray An array of JSON block definitions.
      */
@@ -2248,7 +2248,7 @@ declare module Blockly {
     
             /**
              * Set whether auto-layout of this bubble is enabled.  The first time a bubble
-             * is shown it positions itself to not cover any blocks.  Once a user has
+             * is shown it positions itself to not cover any com.deltarobotics9351.deltapanel.blocks.  Once a user has
              * dragged it to reposition, it renders where the user put it.
              * @param {boolean} enable True if auto-layout should be enabled, false
              *     otherwise.
@@ -2417,7 +2417,7 @@ declare module Blockly {
     class Connection__Class  { 
     
             /**
-             * Class for a connection between blocks.
+             * Class for a connection between com.deltarobotics9351.deltapanel.blocks.
              * @param {!Blockly.Block} source The block establishing this connection.
              * @param {number} type The type of the connection.
              * @constructor
@@ -2469,7 +2469,7 @@ declare module Blockly {
             connect_(childConnection: Blockly.Connection): void;
     
             /**
-             * Dispose of this connection and deal with connected blocks.
+             * Dispose of this connection and deal with connected com.deltarobotics9351.deltapanel.blocks.
              * @package
              */
             dispose(): void;
@@ -2538,7 +2538,7 @@ declare module Blockly {
             disconnect(): void;
     
             /**
-             * Disconnect two blocks that are connected by this connection.
+             * Disconnect two com.deltarobotics9351.deltapanel.blocks that are connected by this connection.
              * @param {!Blockly.Block} parentBlock The superior block.
              * @param {!Blockly.Block} childBlock The inferior block.
              * @protected
@@ -2640,15 +2640,15 @@ declare module Blockly.Connection {
     var CAN_CONNECT: any /*missing*/;
 
     /**
-     * Walks down a row a blocks, at each stage checking if there are any
+     * Walks down a row a com.deltarobotics9351.deltapanel.blocks, at each stage checking if there are any
      * connections that will accept the orphaned block.  If at any point there
      * are zero or multiple eligible connections, returns null.  Otherwise
      * returns the only input on the last block in the chain.
-     * Terminates early for shadow blocks.
+     * Terminates early for shadow com.deltarobotics9351.deltapanel.blocks.
      * @param {!Blockly.Block} startBlock The block on which to start the search.
      * @param {!Blockly.Block} orphanBlock The block that is looking for a home.
      * @return {Blockly.Connection} The suitable connection point on the chain
-     *     of blocks, or null.
+     *     of com.deltarobotics9351.deltapanel.blocks, or null.
      * @package
      */
     function lastConnectionInRow(startBlock: Blockly.Block, orphanBlock: Blockly.Block): Blockly.Connection;
@@ -2948,7 +2948,7 @@ declare module Blockly {
     /**
      * String for use in the "custom" attribute of a category in toolbox XML.
      * This string indicates that the category should be dynamically populated with
-     * variable blocks.
+     * variable com.deltarobotics9351.deltapanel.blocks.
      * @const {string}
      */
     var VARIABLE_CATEGORY_NAME: any /*missing*/;
@@ -2956,7 +2956,7 @@ declare module Blockly {
     /**
      * String for use in the "custom" attribute of a category in toolbox XML.
      * This string indicates that the category should be dynamically populated with
-     * variable blocks.
+     * variable com.deltarobotics9351.deltapanel.blocks.
      * @const {string}
      */
     var VARIABLE_DYNAMIC_CATEGORY_NAME: any /*missing*/;
@@ -2964,7 +2964,7 @@ declare module Blockly {
     /**
      * String for use in the "custom" attribute of a category in toolbox XML.
      * This string indicates that the category should be dynamically populated with
-     * procedure blocks.
+     * procedure com.deltarobotics9351.deltapanel.blocks.
      * @const {string}
      */
     var PROCEDURE_CATEGORY_NAME: any /*missing*/;
@@ -3494,9 +3494,9 @@ declare module Blockly.Events {
 
     /**
      * Enable/disable a block depending on whether it is properly connected.
-     * Use this on applications where all blocks should be connected to a top block.
+     * Use this on applications where all com.deltarobotics9351.deltapanel.blocks should be connected to a top block.
      * Recommend setting the 'disable' option to 'false' in the config so that
-     * users don't try to re-enable disabled orphan blocks.
+     * users don't try to re-enable disabled orphan com.deltarobotics9351.deltapanel.blocks.
      * @param {!Blockly.Events.Abstract} event Custom data for event.
      */
     function disableOrphans(event: Blockly.Events.Abstract): void;
@@ -3575,7 +3575,7 @@ declare module Blockly.Extensions {
 
     /**
      * Registers a new extension function. Extensions are functions that help
-     * initialize blocks, usually adding dynamic behavior such as onchange
+     * initialize com.deltarobotics9351.deltapanel.blocks, usually adding dynamic behavior such as onchange
      * handlers and mutators. These are applied using Block.applyExtension(), or
      * the JSON "extensions" array attribute.
      * @param {string} name The name of this extension.
@@ -3603,7 +3603,7 @@ declare module Blockly.Extensions {
      * @param {!Object} mixinObj The values to mix in.
      * @param {(function())=} opt_helperFn An optional function to apply after
      *     mixing in the object.
-     * @param {!Array.<string>=} opt_blockList A list of blocks to appear in the
+     * @param {!Array.<string>=} opt_blockList A list of com.deltarobotics9351.deltapanel.blocks to appear in the
      *     flyout of the mutator dialog.
      * @throws {Error} if the mutation is invalid or can't be applied to the block.
      */
@@ -3921,7 +3921,7 @@ declare module Blockly {
             /**
              * Check whether this field is currently editable.  Some fields are never
              * EDITABLE (e.g. text labels). Other fields may be EDITABLE but may exist on
-             * non-editable blocks.
+             * non-editable com.deltarobotics9351.deltapanel.blocks.
              * @return {boolean} Whether this field is editable and on an editable block
              */
             isCurrentlyEditable(): boolean;
@@ -4242,7 +4242,7 @@ declare module Blockly {
              *    changes to the field's value. Takes in a number & returns a
              *    validated number, or null to abort the change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/angle#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/angle#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.FieldTextInput}
              * @constructor
@@ -4354,7 +4354,7 @@ declare module Blockly {
              *    returns a validated value ('TRUE' or 'FALSE'), or null to abort the
              *    change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/checkbox#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/checkbox#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.Field}
              * @constructor
@@ -4473,7 +4473,7 @@ declare module Blockly {
              *    changes to the field's value. Takes in a colour string & returns a
              *    validated colour string ('#rrggbb' format), or null to abort the change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/colour}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/colour}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.Field}
              * @constructor
@@ -4704,7 +4704,7 @@ declare module Blockly {
              *    option & returns a validated language-neutral dropdown option, or null to
              *    abort the change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/dropdown#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/dropdown#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.Field}
              * @constructor
@@ -4888,7 +4888,7 @@ declare module Blockly {
              *     also be defined.
              * @param {boolean=} opt_flipRtl Whether to flip the icon in RTL.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/image#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/image#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.Field}
              * @constructor
@@ -4984,7 +4984,7 @@ declare module Blockly {
              *    string. Defaults to an empty string if null or undefined.
              * @param {string=} opt_class Optional CSS class for the field's text.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/label#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/label#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.Field}
              * @constructor
@@ -5047,7 +5047,7 @@ declare module Blockly {
              *    string. Defaults to an empty string if null or undefined.
              * @param {string=} opt_class Optional CSS class for the field's text.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/label-serializable#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/label-serializable#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.FieldLabel}
              * @constructor
@@ -5101,7 +5101,7 @@ declare module Blockly {
              *     text as an argument and returns either the accepted text, a replacement
              *     text, or null to abort the change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/text-input#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/text-input#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.FieldTextInput}
              * @constructor
@@ -5195,7 +5195,7 @@ declare module Blockly {
              *    changes to the field's value. Takes in a number & returns a validated
              *    number, or null to abort the change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/number#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/number#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.FieldTextInput}
              * @constructor
@@ -5351,7 +5351,7 @@ declare module Blockly {
              *    changes to the field's value. Takes in a string & returns a validated
              *    string, or null to abort the change.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/text-input#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/text-input#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.Field}
              * @constructor
@@ -5572,7 +5572,7 @@ declare module Blockly {
              * @param {string=} opt_defaultType The type of variable to create if this
              *     field's value is not explicitly set.  Defaults to ''.
              * @param {Object=} opt_config A map of options used to configure the field.
-             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/variable#creation}
+             *    See the [field creation documentation]{@link https://developers.google.com/blockly/guides/create-custom-com.deltarobotics9351.deltapanel.blocks/fields/built-in-fields/variable#creation}
              *    for a list of properties this parameter supports.
              * @extends {Blockly.FieldDropdown}
              * @constructor
@@ -5795,7 +5795,7 @@ declare module Blockly {
             CORNER_RADIUS: number;
     
             /**
-             * Margin around the edges of the blocks in the flyout.
+             * Margin around the edges of the com.deltarobotics9351.deltapanel.blocks in the flyout.
              * @type {number}
              * @const
              */
@@ -5867,7 +5867,7 @@ declare module Blockly {
             /**
              * Initializes the flyout.
              * @param {!Blockly.WorkspaceSvg} targetWorkspace The workspace in which to
-             *     create new blocks.
+             *     create new com.deltarobotics9351.deltapanel.blocks.
              */
             init(targetWorkspace: Blockly.WorkspaceSvg): void;
     
@@ -5933,8 +5933,8 @@ declare module Blockly {
     
             /**
              * Show and populate the flyout.
-             * @param {!Array|!NodeList|string} xmlList List of blocks to show.
-             *     Variables and procedures have a custom set of blocks.
+             * @param {!Array|!NodeList|string} xmlList List of com.deltarobotics9351.deltapanel.blocks to show.
+             *     Variables and procedures have a custom set of com.deltarobotics9351.deltapanel.blocks.
              */
             show(xmlList: any[]|NodeList|string): void;
     
@@ -6002,7 +6002,7 @@ declare module Blockly {
             moveRectToBlock_(rect: SVGElement, block: Blockly.BlockSvg): void;
     
             /**
-             * Reflow blocks and their mats.
+             * Reflow com.deltarobotics9351.deltapanel.blocks and their mats.
              */
             reflow(): void;
     
@@ -6233,7 +6233,7 @@ declare module Blockly {
     class Generator__Class  { 
     
             /**
-             * Class for a code generator that translates the blocks into a language.
+             * Class for a code generator that translates the com.deltarobotics9351.deltapanel.blocks into a language.
              * @param {string} name Language name of this generator.
              * @constructor
              */
@@ -6284,7 +6284,7 @@ declare module Blockly {
             ORDER_OVERRIDES: number[][];
     
             /**
-             * Generate code for all blocks in the workspace to the specified language.
+             * Generate code for all com.deltarobotics9351.deltapanel.blocks in the workspace to the specified language.
              * @param {Blockly.Workspace} workspace Workspace to generate code from.
              * @return {string} Generated code.
              */
@@ -6300,18 +6300,18 @@ declare module Blockly {
             prefixLines(text: string, prefix: string): string;
     
             /**
-             * Recursively spider a tree of blocks, returning all their comments.
+             * Recursively spider a tree of com.deltarobotics9351.deltapanel.blocks, returning all their comments.
              * @param {!Blockly.Block} block The block from which to start spidering.
              * @return {string} Concatenated list of comments.
              */
             allNestedComments(block: Blockly.Block): string;
     
             /**
-             * Generate code for the specified block (and attached blocks).
+             * Generate code for the specified block (and attached com.deltarobotics9351.deltapanel.blocks).
              * @param {Blockly.Block} block The block to generate code for.
              * @param {boolean=} opt_thisOnly True to generate code for only this statement.
-             * @return {string|!Array} For statement blocks, the generated code.
-             *     For value blocks, an array containing the generated code and an
+             * @return {string|!Array} For statement com.deltarobotics9351.deltapanel.blocks, the generated code.
+             *     For value com.deltarobotics9351.deltapanel.blocks, an array containing the generated code and an
              *     operator order value.  Returns '' if block is null.
              */
             blockToCode(block: Blockly.Block, opt_thisOnly?: boolean): string|any[];
@@ -6322,19 +6322,19 @@ declare module Blockly {
              * @param {string} name The name of the input.
              * @param {number} outerOrder The maximum binding strength (minimum order value)
              *     of any operators adjacent to "block".
-             * @return {string} Generated code or '' if no blocks are connected or the
+             * @return {string} Generated code or '' if no com.deltarobotics9351.deltapanel.blocks are connected or the
              *     specified input does not exist.
              */
             valueToCode(block: Blockly.Block, name: string, outerOrder: number): string;
     
             /**
-             * Generate a code string representing the blocks attached to the named
+             * Generate a code string representing the com.deltarobotics9351.deltapanel.blocks attached to the named
              * statement input. Indent the code.
              * This is mainly used in generators. When trying to generate code to evaluate
              * look at using workspaceToCode or blockToCode.
              * @param {!Blockly.Block} block The block containing the input.
              * @param {string} name The name of the input.
-             * @return {string} Generated code or '' if no blocks are connected.
+             * @return {string} Generated code or '' if no com.deltarobotics9351.deltapanel.blocks are connected.
              */
             statementToCode(block: Blockly.Block, name: string): string;
     
@@ -6432,16 +6432,16 @@ declare module Blockly {
             init(_workspace: Blockly.Workspace): void;
     
             /**
-             * Common tasks for generating code from blocks.  This is called from
-             * blockToCode and is called on every block, not just top level blocks.
+             * Common tasks for generating code from com.deltarobotics9351.deltapanel.blocks.  This is called from
+             * blockToCode and is called on every block, not just top level com.deltarobotics9351.deltapanel.blocks.
              * Subclasses may override this, e.g. to generate code for statements following
              * the block, or to handle comments for the specified block and any connected
-             * value blocks.
+             * value com.deltarobotics9351.deltapanel.blocks.
              * @param {!Blockly.Block} _block The current block.
              * @param {string} code The code created for this block.
              * @param {boolean=} _opt_thisOnly True to generate code for only this
              *     statement.
-             * @return {string} Code with comments and subsequent blocks added.
+             * @return {string} Code with comments and subsequent com.deltarobotics9351.deltapanel.blocks added.
              * @protected
              */
             scrub_(_block: Blockly.Block, code: string, _opt_thisOnly?: boolean): string;
@@ -6456,7 +6456,7 @@ declare module Blockly {
             finish(code: string): string;
     
             /**
-             * Naked values are top-level blocks with outputs that aren't plugged into
+             * Naked values are top-level com.deltarobotics9351.deltapanel.blocks with outputs that aren't plugged into
              * anything.
              * Subclasses may override this, e.g. if their language does not allow
              * naked values.
@@ -6630,7 +6630,7 @@ declare module Blockly {
             /**
              * Whether this gesture is a drag of either a workspace or block.
              * This function is called externally to block actions that cannot be taken
-             * mid-drag (e.g. using the keyboard to delete the selected blocks).
+             * mid-drag (e.g. using the keyboard to delete the selected com.deltarobotics9351.deltapanel.blocks).
              * @return {boolean} True if this gesture is a drag of a workspace or block.
              * @package
              */
@@ -6649,7 +6649,7 @@ declare module Blockly {
              * Get a list of the insertion markers that currently exist.  Block drags have
              * 0, 1, or 2 insertion markers.
              * @return {!Array.<!Blockly.BlockSvg>} A possibly empty list of insertion
-             *     marker blocks.
+             *     marker com.deltarobotics9351.deltapanel.blocks.
              * @package
              */
             getInsertionMarkers(): Blockly.BlockSvg[];
@@ -6692,8 +6692,8 @@ declare module Blockly {
             dispose(): void;
     
             /**
-             * Whether blocks should snap to the grid, based on the initial configuration.
-             * @return {boolean} True if blocks should snap, false otherwise.
+             * Whether com.deltarobotics9351.deltapanel.blocks should snap to the grid, based on the initial configuration.
+             * @return {boolean} True if com.deltarobotics9351.deltapanel.blocks should snap, false otherwise.
              * @package
              */
             shouldSnap(): boolean;
@@ -6946,7 +6946,7 @@ declare module Blockly {
              * Sets whether this input is visible or not.
              * Should only be used to collapse/uncollapse a block.
              * @param {boolean} visible True if visible.
-             * @return {!Array.<!Blockly.Block>} List of blocks to render.
+             * @return {!Array.<!Blockly.Block>} List of com.deltarobotics9351.deltapanel.blocks to render.
              * @package
              */
             setVisible(visible: boolean): Blockly.Block[];
@@ -7047,7 +7047,7 @@ declare module Blockly {
              * Get a list of the insertion markers that currently exist.  Drags have 0, 1,
              * or 2 insertion markers.
              * @return {!Array.<!Blockly.BlockSvg>} A possibly empty list of insertion
-             *     marker blocks.
+             *     marker com.deltarobotics9351.deltapanel.blocks.
              * @package
              */
             getInsertionMarkers(): Blockly.BlockSvg[];
@@ -7139,7 +7139,7 @@ declare module Blockly {
     
             /**
              * Class for a mutator dialog.
-             * @param {!Array.<string>} quarkNames List of names of sub-blocks for flyout.
+             * @param {!Array.<string>} quarkNames List of names of sub-com.deltarobotics9351.deltapanel.blocks for flyout.
              * @extends {Blockly.Icon}
              * @constructor
              */
@@ -7177,7 +7177,7 @@ declare module Blockly {
             dispose(): void;
     
             /**
-             * Update the styles on all blocks in the mutator.
+             * Update the styles on all com.deltarobotics9351.deltapanel.blocks in the mutator.
              * @public
              */
             updateBlockStyle(): void;
@@ -7336,8 +7336,8 @@ declare module Blockly.Options {
 
     /**
      * Parse the provided toolbox tree into a consistent DOM format.
-     * @param {Node|string} tree DOM tree of blocks, or text representation of same.
-     * @return {Node} DOM tree of blocks, or null.
+     * @param {Node|string} tree DOM tree of com.deltarobotics9351.deltapanel.blocks, or text representation of same.
+     * @return {Node} DOM tree of com.deltarobotics9351.deltapanel.blocks, or null.
      */
     function parseToolboxTree(tree: Node|string): Node;
 }
@@ -7411,7 +7411,7 @@ declare module Blockly.Procedures {
     function rename(name: string): string;
 
     /**
-     * Construct the blocks required by the flyout for the procedure category.
+     * Construct the com.deltarobotics9351.deltapanel.blocks required by the flyout for the procedure category.
      * @param {!Blockly.Workspace} workspace The workspace containing procedures.
      * @return {!Array.<!Element>} Array of XML block elements.
      */
@@ -7429,7 +7429,7 @@ declare module Blockly.Procedures {
      * Find all the callers of a named procedure.
      * @param {string} name Name of procedure.
      * @param {!Blockly.Workspace} workspace The workspace to find callers in.
-     * @return {!Array.<!Blockly.Block>} Array of caller blocks.
+     * @return {!Array.<!Blockly.Block>} Array of caller com.deltarobotics9351.deltapanel.blocks.
      */
     function getCallers(name: string, workspace: Blockly.Workspace): Blockly.Block[];
 
@@ -7457,7 +7457,7 @@ declare module Blockly {
     class RenderedConnection__Class extends Blockly.Connection__Class  { 
     
             /**
-             * Class for a connection between blocks that may be rendered on screen.
+             * Class for a connection between com.deltarobotics9351.deltapanel.blocks that may be rendered on screen.
              * @param {!Blockly.BlockSvg} source The block establishing this connection.
              * @param {number} type The type of the connection.
              * @extends {Blockly.Connection}
@@ -7520,7 +7520,7 @@ declare module Blockly {
             getOffsetInBlock(): Blockly.utils.Coordinate;
     
             /**
-             * Move the blocks on either side of this connection right next to each other.
+             * Move the com.deltarobotics9351.deltapanel.blocks on either side of this connection right next to each other.
              * @package
              */
             tighten(): void;
@@ -7567,7 +7567,7 @@ declare module Blockly {
             /**
              * Start tracking this connection, as well as all down-stream connections on
              * any block attached to this connection. This happens when a block is expanded.
-             * @return {!Array.<!Blockly.Block>} List of blocks to render.
+             * @return {!Array.<!Blockly.Block>} List of com.deltarobotics9351.deltapanel.blocks to render.
              */
             startTrackingAll(): Blockly.Block[];
     
@@ -7600,7 +7600,7 @@ declare module Blockly {
     
             /**
              * Connect two connections together.  This is the connection on the superior
-             * block.  Rerender blocks as needed.
+             * block.  Rerender com.deltarobotics9351.deltapanel.blocks as needed.
              * @param {!Blockly.Connection} childConnection Connection on inferior block.
              * @protected
              */
@@ -7814,7 +7814,7 @@ declare module Blockly {
              * Class for a theme.
              * @param {string} name Theme name.
              * @param {!Object.<string, Blockly.Theme.BlockStyle>} blockStyles A map from
-             *     style names (strings) to objects with style attributes for blocks.
+             *     style names (strings) to objects with style attributes for com.deltarobotics9351.deltapanel.blocks.
              * @param {!Object.<string, Blockly.Theme.CategoryStyle>} categoryStyles A map
              *     from style names (strings) to objects with style attributes for
              *     categories.
@@ -7924,7 +7924,7 @@ declare module Blockly {
     
             /**
              * Subscribe a workspace to changes to the selected theme.  If a new theme is
-             * set, the workspace is called to refresh its blocks.
+             * set, the workspace is called to refresh its com.deltarobotics9351.deltapanel.blocks.
              * @param {!Blockly.Workspace} workspace The workspace to subscribe.
              * @package
              */
@@ -7991,7 +7991,7 @@ declare module Blockly {
              * Class for a Toolbox.
              * Creates the toolbox's DOM.
              * @param {!Blockly.WorkspaceSvg} workspace The workspace in which to create new
-             *     blocks.
+             *     com.deltarobotics9351.deltapanel.blocks.
              * @constructor
              */
             constructor(workspace: Blockly.WorkspaceSvg);
@@ -8034,8 +8034,8 @@ declare module Blockly {
             HtmlDiv: Element;
     
             /**
-             * Fill the toolbox with categories and blocks.
-             * @param {Node} languageTree DOM tree of blocks.
+             * Fill the toolbox with categories and com.deltarobotics9351.deltapanel.blocks.
+             * @param {Node} languageTree DOM tree of com.deltarobotics9351.deltapanel.blocks.
              * @package
              */
             renderTree(languageTree: Node): void;
@@ -8741,7 +8741,7 @@ declare module Blockly.utils {
      *    children with that type.
      * @param {!Blockly.Block} block The block to map.
      * @param {boolean=} opt_stripFollowing Optionally ignore all following
-     *    statements (blocks that are not inside a value or statement input
+     *    statements (com.deltarobotics9351.deltapanel.blocks that are not inside a value or statement input
      *    of the block).
      * @return {!Object} Map of types to type counts for descendants of the bock.
      */
@@ -9161,7 +9161,7 @@ declare module Blockly.Variables {
     function allUsedVariables(): void;
 
     /**
-     * Find all developer variables used by blocks in the workspace.
+     * Find all developer variables used by com.deltarobotics9351.deltapanel.blocks in the workspace.
      * Developer variables are never shown to the user, but are declared as global
      * variables in the generated code.
      * To declare developer variables, define the getDeveloperVariables function on
@@ -9173,7 +9173,7 @@ declare module Blockly.Variables {
     function allDeveloperVariables(workspace: Blockly.Workspace): string[];
 
     /**
-     * Construct the elements (blocks and button) required by the flyout for the
+     * Construct the elements (com.deltarobotics9351.deltapanel.blocks and button) required by the flyout for the
      * variable category.
      * @param {!Blockly.Workspace} workspace The workspace containing variables.
      * @return {!Array.<!Element>} Array of XML elements.
@@ -9181,7 +9181,7 @@ declare module Blockly.Variables {
     function flyoutCategory(workspace: Blockly.Workspace): Element[];
 
     /**
-     * Construct the blocks required by the flyout for the variable category.
+     * Construct the com.deltarobotics9351.deltapanel.blocks required by the flyout for the variable category.
      * @param {!Blockly.Workspace} workspace The workspace containing variables.
      * @return {!Array.<!Element>} Array of XML block elements.
      */
@@ -9319,7 +9319,7 @@ declare module Blockly.Variables {
 declare module Blockly.VariablesDynamic {
 
     /**
-     * Construct the elements (blocks and button) required by the flyout for the
+     * Construct the elements (com.deltarobotics9351.deltapanel.blocks and button) required by the flyout for the
      * variable category.
      * @param {!Blockly.Workspace} workspace The workspace containing variables.
      * @return {!Array.<!Element>} Array of XML elements.
@@ -9327,7 +9327,7 @@ declare module Blockly.VariablesDynamic {
     function flyoutCategory(workspace: Blockly.Workspace): Element[];
 
     /**
-     * Construct the blocks required by the flyout for the variable category.
+     * Construct the com.deltarobotics9351.deltapanel.blocks required by the flyout for the variable category.
      * @param {!Blockly.Workspace} workspace The workspace containing variables.
      * @return {!Array.<!Element>} Array of XML block elements.
      */
@@ -9462,7 +9462,7 @@ declare module Blockly {
     class Workspace__Class  { 
     
             /**
-             * Class for a workspace.  This is a data structure that contains blocks.
+             * Class for a workspace.  This is a data structure that contains com.deltarobotics9351.deltapanel.blocks.
              * There is no UI, and can be created headlessly.
              * @param {!Blockly.Options=} opt_options Dictionary of options.
              * @constructor
@@ -9530,19 +9530,19 @@ declare module Blockly {
             dispose(): void;
     
             /**
-             * Add a block to the list of top blocks.
+             * Add a block to the list of top com.deltarobotics9351.deltapanel.blocks.
              * @param {!Blockly.Block} block Block to add.
              */
             addTopBlock(block: Blockly.Block): void;
     
             /**
-             * Remove a block from the list of top blocks.
+             * Remove a block from the list of top com.deltarobotics9351.deltapanel.blocks.
              * @param {!Blockly.Block} block Block to remove.
              */
             removeTopBlock(block: Blockly.Block): void;
     
             /**
-             * Finds the top-level blocks and returns them.  Blocks are optionally sorted
+             * Finds the top-level com.deltarobotics9351.deltapanel.blocks and returns them.  Blocks are optionally sorted
              * by position; top to bottom (with slight LTR or RTL bias).
              * @param {boolean} ordered Sort the list if true.
              * @return {!Array.<!Blockly.Block>} The top-level block objects.
@@ -9550,23 +9550,23 @@ declare module Blockly {
             getTopBlocks(ordered: boolean): Blockly.Block[];
     
             /**
-             * Add a block to the list of blocks keyed by type.
+             * Add a block to the list of com.deltarobotics9351.deltapanel.blocks keyed by type.
              * @param {!Blockly.Block} block Block to add.
              */
             addTypedBlock(block: Blockly.Block): void;
     
             /**
-             * Remove a block from the list of blocks keyed by type.
+             * Remove a block from the list of com.deltarobotics9351.deltapanel.blocks keyed by type.
              * @param {!Blockly.Block} block Block to remove.
              */
             removeTypedBlock(block: Blockly.Block): void;
     
             /**
-             * Finds the blocks with the associated type and returns them. Blocks are
+             * Finds the com.deltarobotics9351.deltapanel.blocks with the associated type and returns them. Blocks are
              * optionally sorted by position; top to bottom (with slight LTR or RTL bias).
              * @param {string} type The type of block to search for.
              * @param {boolean} ordered Sort the list if true.
-             * @return {!Array.<!Blockly.Block>} The blocks of the given type.
+             * @return {!Array.<!Blockly.Block>} The com.deltarobotics9351.deltapanel.blocks of the given type.
              */
             getBlocksByType(type: string, ordered: boolean): Blockly.Block[];
     
@@ -9594,15 +9594,15 @@ declare module Blockly {
             getTopComments(ordered: boolean): Blockly.WorkspaceComment[];
     
             /**
-             * Find all blocks in workspace.  Blocks are optionally sorted
+             * Find all com.deltarobotics9351.deltapanel.blocks in workspace.  Blocks are optionally sorted
              * by position; top to bottom (with slight LTR or RTL bias).
              * @param {boolean} ordered Sort the list if true.
-             * @return {!Array.<!Blockly.Block>} Array of blocks.
+             * @return {!Array.<!Blockly.Block>} Array of com.deltarobotics9351.deltapanel.blocks.
              */
             getAllBlocks(ordered: boolean): Blockly.Block[];
     
             /**
-             * Dispose of all blocks and comments in workspace.
+             * Dispose of all com.deltarobotics9351.deltapanel.blocks and comments in workspace.
              */
             clear(): void;
     
@@ -9716,35 +9716,35 @@ declare module Blockly {
             newBlock(prototypeName: string, opt_id?: string): Blockly.Block;
     
             /**
-             * The number of blocks that may be added to the workspace before reaching
+             * The number of com.deltarobotics9351.deltapanel.blocks that may be added to the workspace before reaching
              *     the maxBlocks.
-             * @return {number} Number of blocks left.
+             * @return {number} Number of com.deltarobotics9351.deltapanel.blocks left.
              */
             remainingCapacity(): number;
     
             /**
-             * The number of blocks of the given type that may be added to the workspace
+             * The number of com.deltarobotics9351.deltapanel.blocks of the given type that may be added to the workspace
              *    before reaching the maxInstances allowed for that type.
              * @param {string} type Type of block to return capacity for.
-             * @return {number} Number of blocks of type left.
+             * @return {number} Number of com.deltarobotics9351.deltapanel.blocks of type left.
              */
             remainingCapacityOfType(type: string): number;
     
             /**
-             * Check if there is remaining capacity for blocks of the given counts to be
-             *    created. If the total number of blocks represented by the map is more than
+             * Check if there is remaining capacity for com.deltarobotics9351.deltapanel.blocks of the given counts to be
+             *    created. If the total number of com.deltarobotics9351.deltapanel.blocks represented by the map is more than
              *    the total remaining capacity, it returns false. If a type count is more
              *    than the remaining capacity for that type, it returns false.
              * @param {!Object} typeCountsMap A map of types to counts (usually representing
-             *    blocks to be created).
+             *    com.deltarobotics9351.deltapanel.blocks to be created).
              * @return {boolean} True if there is capacity for the given map,
              *    false otherwise.
              */
             isCapacityAvailable(typeCountsMap: Object): boolean;
     
             /**
-             * Checks if the workspace has any limits on the maximum number of blocks,
-             *    or the maximum number of blocks of specific types.
+             * Checks if the workspace has any limits on the maximum number of com.deltarobotics9351.deltapanel.blocks,
+             *    or the maximum number of com.deltarobotics9351.deltapanel.blocks of specific types.
              * @return {boolean} True if it has block limits, false otherwise.
              */
             hasBlockLimits(): boolean;
@@ -9815,9 +9815,9 @@ declare module Blockly {
     
             /**
              * Checks whether all value and statement inputs in the workspace are filled
-             * with blocks.
+             * with com.deltarobotics9351.deltapanel.blocks.
              * @param {boolean=} opt_shadowBlocksAreFilled An optional argument controlling
-             *     whether shadow blocks are counted as filled. Defaults to true.
+             *     whether shadow com.deltarobotics9351.deltapanel.blocks are counted as filled. Defaults to true.
              * @return {boolean} True if all inputs are filled, false otherwise.
              */
             allInputsFilled(opt_shadowBlocksAreFilled?: boolean): boolean;
@@ -9855,7 +9855,7 @@ declare module Blockly {
 declare module Blockly.Workspace {
 
     /**
-     * Angle away from the horizontal to sweep for blocks.  Order of execution is
+     * Angle away from the horizontal to sweep for com.deltarobotics9351.deltapanel.blocks.  Order of execution is
      * generally top to bottom, but a small angle changes the scan to give a bit of
      * a left to right bias (reversed in RTL).  Units are in degrees.
      * See: https://tvtropes.org/pmwiki/pmwiki.php/Main/DiagonalBilling
@@ -10245,7 +10245,7 @@ declare module Blockly {
     
             /**
              * Move this comment during a drag, taking into account whether we are using a
-             * drag surface to translate blocks.
+             * drag surface to translate com.deltarobotics9351.deltapanel.blocks.
              * @param {Blockly.BlockDragSurfaceSvg} dragSurface The surface that carries
              *     rendered items during a drag, or null if no drag surface is in use.
              * @param {!Blockly.utils.Coordinate} newLoc The location to translate to, in
@@ -10369,7 +10369,7 @@ declare module Blockly {
             /**
              * Blocks are moved into this SVG during a drag, improving performance.
              * The entire SVG is translated using CSS transforms instead of SVG so the
-             * blocks are never repainted during drag improving performance.
+             * com.deltarobotics9351.deltapanel.blocks are never repainted during drag improving performance.
              * @param {!Element} container Containing element.
              * @constructor
              */
@@ -10392,7 +10392,7 @@ declare module Blockly {
     
             /**
              * Translate the entire drag surface during a drag.
-             * We translate the drag surface instead of the blocks inside the surface
+             * We translate the drag surface instead of the com.deltarobotics9351.deltapanel.blocks inside the surface
              * so that the browser avoids repainting the SVG.
              * Because of this, the drag coordinates must be adjusted by scale.
              * @param {number} x X translation for the entire surface
@@ -10403,7 +10403,7 @@ declare module Blockly {
     
             /**
              * Reports the surface translation in scaled workspace coordinates.
-             * Use this when finishing a drag to return blocks to the correct position.
+             * Use this when finishing a drag to return com.deltarobotics9351.deltapanel.blocks to the correct position.
              * @return {!Blockly.utils.Coordinate} Current translation of the surface
              * @package
              */
@@ -10560,7 +10560,7 @@ declare module Blockly {
              * scrollbars, bubbles, and dragging.
              * @param {!Blockly.Options} options Dictionary of options.
              * @param {Blockly.BlockDragSurfaceSvg=} opt_blockDragSurface Drag surface for
-             *     blocks.
+             *     com.deltarobotics9351.deltapanel.blocks.
              * @param {Blockly.WorkspaceDragSurfaceSvg=} opt_wsDragSurface Drag surface for
              *     the workspace.
              * @extends {Blockly.Workspace}
@@ -10712,7 +10712,7 @@ declare module Blockly {
             configureContextMenu(options: Object[]): void;
     
             /**
-             * In a flyout, the target workspace where blocks should be placed after a drag.
+             * In a flyout, the target workspace where com.deltarobotics9351.deltapanel.blocks should be placed after a drag.
              * Otherwise null.
              * @type {Blockly.WorkspaceSvg}
              * @package
@@ -10783,7 +10783,7 @@ declare module Blockly {
             setTheme(theme: Blockly.Theme): void;
     
             /**
-             * Refresh all blocks on the workspace after a theme update.
+             * Refresh all com.deltarobotics9351.deltapanel.blocks on the workspace after a theme update.
              * @package
              */
             refreshTheme(): void;
@@ -11015,7 +11015,7 @@ declare module Blockly {
             setVisible(isVisible: boolean): void;
     
             /**
-             * Render all blocks in workspace.
+             * Render all com.deltarobotics9351.deltapanel.blocks in workspace.
              */
             render(): void;
     
@@ -11029,9 +11029,9 @@ declare module Blockly {
     
             /**
              * Highlight or unhighlight a block in the workspace.  Block highlighting is
-             * often used to visually mark blocks currently being executed.
+             * often used to visually mark com.deltarobotics9351.deltapanel.blocks currently being executed.
              * @param {?string} id ID of block to highlight/unhighlight,
-             *   or null for no block (used to unhighlight all blocks).
+             *   or null for no block (used to unhighlight all com.deltarobotics9351.deltapanel.blocks).
              * @param {boolean=} opt_state If undefined, highlight specified block and
              * automatically unhighlight all others.  If true or false, manually
              * highlight/unhighlight the specified block.
@@ -11139,16 +11139,16 @@ declare module Blockly {
             isMovable(): boolean;
     
             /**
-             * Calculate the bounding box for the blocks on the workspace.
+             * Calculate the bounding box for the com.deltarobotics9351.deltapanel.blocks on the workspace.
              * Coordinate system: workspace coordinates.
              *
              * @return {!Blockly.utils.Rect} Contains the position and size of the
-             *   bounding box containing the blocks on the workspace.
+             *   bounding box containing the com.deltarobotics9351.deltapanel.blocks on the workspace.
              */
             getBlocksBoundingBox(): Blockly.utils.Rect;
     
             /**
-             * Clean up the workspace by ordering all the blocks in a column.
+             * Clean up the workspace by ordering all the com.deltarobotics9351.deltapanel.blocks in a column.
              */
             cleanUp(): void;
     
@@ -11161,7 +11161,7 @@ declare module Blockly {
     
             /**
              * Modify the block tree on the existing toolbox.
-             * @param {Node|string} tree DOM tree of blocks, or text representation of same.
+             * @param {Node|string} tree DOM tree of com.deltarobotics9351.deltapanel.blocks, or text representation of same.
              */
             updateToolbox(tree: Node|string): void;
     
@@ -11185,13 +11185,13 @@ declare module Blockly {
             zoom(x: number, y: number, amount: number): void;
     
             /**
-             * Zooming the blocks centered in the center of view with zooming in or out.
+             * Zooming the com.deltarobotics9351.deltapanel.blocks centered in the center of view with zooming in or out.
              * @param {number} type Type of zooming (-1 zooming out and 1 zooming in).
              */
             zoomCenter(type: number): void;
     
             /**
-             * Zoom the blocks to fit in the workspace if possible.
+             * Zoom the com.deltarobotics9351.deltapanel.blocks to fit in the workspace if possible.
              */
             zoomToFit(): void;
     
@@ -11246,7 +11246,7 @@ declare module Blockly {
             setResizesEnabled(enabled: boolean): void;
     
             /**
-             * Dispose of all blocks in workspace, with an optimization to prevent resizes.
+             * Dispose of all com.deltarobotics9351.deltapanel.blocks in workspace, with an optimization to prevent resizes.
              */
             clear(): void;
     
@@ -11615,7 +11615,7 @@ declare module Blockly.Xml {
 
     /**
      * Encode a block tree as XML.
-     * @param {!Blockly.Workspace} workspace The workspace containing blocks.
+     * @param {!Blockly.Workspace} workspace The workspace containing com.deltarobotics9351.deltapanel.blocks.
      * @param {boolean=} opt_noId True if the encoder should skip the block IDs.
      * @return {!Element} XML DOM element.
      */
@@ -11672,7 +11672,7 @@ declare module Blockly.Xml {
 
     /**
      * Clear the given workspace then decode an XML DOM and
-     * create blocks on the workspace.
+     * create com.deltarobotics9351.deltapanel.blocks on the workspace.
      * @param {!Element} xml XML DOM.
      * @param {!Blockly.Workspace} workspace The workspace.
      * @return {Array.<string>} An array containing new block ids.
@@ -11680,7 +11680,7 @@ declare module Blockly.Xml {
     function clearWorkspaceAndLoadFromXml(xml: Element, workspace: Blockly.Workspace): string[];
 
     /**
-     * Decode an XML DOM and create blocks on the workspace.
+     * Decode an XML DOM and create com.deltarobotics9351.deltapanel.blocks on the workspace.
      * @param {!Element} xml XML DOM.
      * @param {!Blockly.Workspace} workspace The workspace.
      * @return {!Array.<string>} An array containing new block IDs.
@@ -11690,8 +11690,8 @@ declare module Blockly.Xml {
     function domToWorkspace(xml: Element, workspace: Blockly.Workspace): string[];
 
     /**
-     * Decode an XML DOM and create blocks on the workspace. Position the new
-     * blocks immediately below prior blocks, aligned by their starting edge.
+     * Decode an XML DOM and create com.deltarobotics9351.deltapanel.blocks on the workspace. Position the new
+     * com.deltarobotics9351.deltapanel.blocks immediately below prior com.deltarobotics9351.deltapanel.blocks, aligned by their starting edge.
      * @param {!Element} xml The XML DOM.
      * @param {!Blockly.Workspace} workspace The workspace to add to.
      * @return {Array.<string>} An array containing new block IDs.
@@ -11699,7 +11699,7 @@ declare module Blockly.Xml {
     function appendDomToWorkspace(xml: Element, workspace: Blockly.Workspace): string[];
 
     /**
-     * Decode an XML block tag and create a block (and possibly sub blocks) on the
+     * Decode an XML block tag and create a block (and possibly sub com.deltarobotics9351.deltapanel.blocks) on the
      * workspace.
      * @param {!Element} xmlBlock XML block element.
      * @param {!Blockly.Workspace} workspace The workspace.
@@ -12226,7 +12226,7 @@ declare module Blockly.ASTNode {
 
     /**
      * Create an AST node of type stack. A stack, represented by its top block, is
-     *     the set of all blocks connected to a top block, including the top block.
+     *     the set of all com.deltarobotics9351.deltapanel.blocks connected to a top block, including the top block.
      * @param {Blockly.Block} topBlock A top block has no parent and can be found
      *     in the list returned by workspace.getTopBlocks().
      * @return {Blockly.ASTNode} An AST node of type stack that points to the top
@@ -12365,7 +12365,7 @@ declare module Blockly {
     
             /**
              * Class for a flyout cursor.
-             * This controls how a user navigates blocks in the flyout.
+             * This controls how a user navigates com.deltarobotics9351.deltapanel.blocks in the flyout.
              * @constructor
              * @extends {Blockly.Cursor}
              */
@@ -14418,13 +14418,13 @@ declare module Blockly.blockRendering {
     function unregister(name: string): void;
 
     /**
-     * Turn on the blocks debugger.
+     * Turn on the com.deltarobotics9351.deltapanel.blocks debugger.
      * @package
      */
     function startDebugger(): void;
 
     /**
-     * Turn off the blocks debugger.
+     * Turn off the com.deltarobotics9351.deltapanel.blocks debugger.
      * @package
      */
     function stopDebugger(): void;
@@ -14447,7 +14447,7 @@ declare module Blockly.blockRendering {
     class ConstantProvider__Class  { 
     
             /**
-             * An object that provides constants for rendering blocks.
+             * An object that provides constants for rendering com.deltarobotics9351.deltapanel.blocks.
              * @constructor
              * @package
              */
@@ -14597,7 +14597,7 @@ declare module Blockly.blockRendering {
             BOTTOM_ROW_AFTER_STATEMENT_MIN_HEIGHT: number;
     
             /**
-             * Whether to add a 'hat' on top of all blocks with no previous or output
+             * Whether to add a 'hat' on top of all com.deltarobotics9351.deltapanel.blocks with no previous or output
              * connections. Can be overridden by 'hat' property on Theme.BlockStyle.
              * @type {boolean}
              */
@@ -14631,13 +14631,13 @@ declare module Blockly.blockRendering {
             EMPTY_STATEMENT_INPUT_HEIGHT: number;
     
             /**
-             * Height of SVG path for jagged teeth at the end of collapsed blocks.
+             * Height of SVG path for jagged teeth at the end of collapsed com.deltarobotics9351.deltapanel.blocks.
              * @type {number}
              */
             JAGGED_TEETH_HEIGHT: number;
     
             /**
-             * Width of SVG path for jagged teeth at the end of collapsed blocks.
+             * Width of SVG path for jagged teeth at the end of collapsed com.deltarobotics9351.deltapanel.blocks.
              * @type {number}
              */
             JAGGED_TEETH_WIDTH: number;
@@ -15426,7 +15426,7 @@ declare module Blockly.blockRendering {
     
         /**
           * Set whether the block shows a highlight or not.  Block highlighting is
-          * often used to visually mark blocks currently being executed.
+          * often used to visually mark com.deltarobotics9351.deltapanel.blocks currently being executed.
           * @param {boolean} highlighted True if highlighted.
           * @package
           */
@@ -15530,7 +15530,7 @@ declare module Blockly.blockRendering {
     
             /**
              * Whether the block is an insertion marker.  Insertion markers are the same
-             * shape as normal blocks, but don't show fields.
+             * shape as normal com.deltarobotics9351.deltapanel.blocks, but don't show fields.
              * @type {boolean}
              */
             isInsertionMarker: boolean;
@@ -15542,19 +15542,19 @@ declare module Blockly.blockRendering {
             RTL: boolean;
     
             /**
-             * The height of the rendered block, including child blocks.
+             * The height of the rendered block, including child com.deltarobotics9351.deltapanel.blocks.
              * @type {number}
              */
             height: number;
     
             /**
-             * The width of the rendered block, including child blocks.
+             * The width of the rendered block, including child com.deltarobotics9351.deltapanel.blocks.
              * @type {number}
              */
             widthWithChildren: number;
     
             /**
-             * The width of the rendered block, excluding child blocks.  This is the right
+             * The width of the rendered block, excluding child com.deltarobotics9351.deltapanel.blocks.  This is the right
              * edge of the block when rendered LTR.
              * @type {number}
              */
@@ -15884,7 +15884,7 @@ declare module Blockly.blockRendering {
     
             /**
              * Show the visual representation of a stack.
-             * This is a box with extra padding around the entire stack of blocks.
+             * This is a box with extra padding around the entire stack of com.deltarobotics9351.deltapanel.blocks.
              * @param {!Blockly.ASTNode} curNode The node that we want to draw the marker for.
              * @protected
              */
@@ -16081,7 +16081,7 @@ declare module Blockly.blockRendering {
     
             /**
              * Set whether the block shows a highlight or not.  Block highlighting is
-             * often used to visually mark blocks currently being executed.
+             * often used to visually mark com.deltarobotics9351.deltapanel.blocks currently being executed.
              * @param {boolean} enable True if highlighted.
              * @package
              */
@@ -16625,7 +16625,7 @@ declare module Blockly.blockRendering {
     
             /**
              * The width of the row, from the left edge of the block to the right.
-             * Does not include child blocks unless they are inline.
+             * Does not include child com.deltarobotics9351.deltapanel.blocks unless they are inline.
              * @package
              * @type {number}
              */
@@ -16640,7 +16640,7 @@ declare module Blockly.blockRendering {
     
             /**
              * The minimum width of the row, from the left edge of the block to the right.
-             * Does not include child blocks unless they are inline.
+             * Does not include child com.deltarobotics9351.deltapanel.blocks unless they are inline.
              * @package
              * @type {number}
              */
@@ -16648,7 +16648,7 @@ declare module Blockly.blockRendering {
     
             /**
              * The width of the row, from the left edge of the block to the edge of the
-             * block or any connected child blocks.
+             * block or any connected child com.deltarobotics9351.deltapanel.blocks.
              * @package
              * @type {number}
              */
@@ -16921,7 +16921,7 @@ declare module Blockly.blockRendering {
             constructor(constants: Blockly.blockRendering.ConstantProvider);
     
             /**
-             * The total width of all blocks connected to this row.
+             * The total width of all com.deltarobotics9351.deltapanel.blocks connected to this row.
              * @type {number}
              * @package
              */

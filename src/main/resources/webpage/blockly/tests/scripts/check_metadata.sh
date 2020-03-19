@@ -18,11 +18,11 @@ BOLD_GREEN='\033[1;32m'
 BOLD_RED='\033[1;31m'
 ANSI_RESET='\033[0m'
 
-# Build the compressed files for core and blocks
+# Build the compressed files for core and com.deltarobotics9351.deltapanel.blocks
 echo "Building files"
 npm install
 gulp build-compressed
-gulp build-blocks
+gulp build-com.deltarobotics9351.deltapanel.blocks
 
 # GZip them for additional size comparisons
 echo "Zipping the compressed files"

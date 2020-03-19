@@ -135,7 +135,8 @@
   </block>
   <block type="procedures_defnoreturn" x="13" y="713">
     <field name="NAME">test create lists</field>
-    <comment pinned="false" h="80" w="160">Tests the "create list with" and "create empty list" blocks.</comment>
+    <comment pinned="false" h="80" w="160">Tests the "create list with" and "create empty list"
+        com.deltarobotics9351.deltapanel.blocks.</comment>
     <statement name="STACK">
       <block type="unittest_assertequals" inline="false">
         <value name="MESSAGE">

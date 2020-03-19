@@ -62,203 +62,203 @@
 
 <script src="unittest.js"></script>
 <script src="../../msg/messages.js"></script>
-<script src="../../blocks/logic.js"></script>
-<script src="../../blocks/loops.js"></script>
-<script src="../../blocks/math.js"></script>
-<script src="../../blocks/text.js"></script>
-<script src="../../blocks/lists.js"></script>
-<script src="../../blocks/colour.js"></script>
-<script src="../../blocks/variables.js"></script>
-<script src="../../blocks/procedures.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/logic.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/loops.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/math.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/text.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/lists.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/colour.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/variables.js"></script>
+<script src="../../com.deltarobotics9351.deltapanel.blocks/procedures.js"></script>
 
 <script>
-'use strict';
+    'use strict';
 
-var demoWorkspace = null;
-var outputCode = '';
+    var demoWorkspace = null;
+    var outputCode = '';
 
-function start() {
-  demoWorkspace = Blockly.inject('blocklyDiv',
-      {grid:
-         {spacing: 25,
-          length: 3,
-          colour: '#ccc',
-          snap: true},
-       media: '../../media/',
-       toolbox: document.getElementById('toolbox'),
-       zoom: {controls: true, wheel: true}
-       });
-  changeIndex();
-}
-
-/**
- * Run this test to load all of the tests in the selected suites.  The contents
- * will be loaded into the workspace in order.  To test the generators:
- * - select your language from the buttons above the text area
- * - copy all of the generated code
- * - run it in an interpreter of your choice
- * - scan all of the results for "FAIL".  All test suites are running in order,
- *      and each will report OK or FAIL based only on the tests in that suite.
- * If some tests are failing, load test suites individually to continue
- * debugging.
- */
-function loadSelected() {
-  var output = document.getElementById('importExport');
-  output.style.background = 'gray';
-
-  var loadingElem = document.getElementById('loading');
-  loadingElem.textContent = 'loading...';
-
-  // Clear before adding all of the blocks.
-  demoWorkspace.clear();
-
-  var boxList = document.getElementsByClassName('suite_checkbox');
-  for (var i = 0; i < boxList.length; i++) {
-    if (boxList[i].checked) {
-      var testUrl = boxList[i].value;
-      if (testUrl) {
-        var xmlText = fetchFile(testUrl);
-        if (xmlText !== null) {
-          fromXml(testUrl, xmlText, /* opt_append */ true);
-        }
-      }
+    function start() {
+    demoWorkspace = Blockly.inject('blocklyDiv',
+    {grid:
+    {spacing: 25,
+    length: 3,
+    colour: '#ccc',
+    snap: true},
+    media: '../../media/',
+    toolbox: document.getElementById('toolbox'),
+    zoom: {controls: true, wheel: true}
+    });
+    changeIndex();
     }
-  }
-  output.style.background = '';
-  loadingElem.textContent = 'done';
-}
 
-/**
- * Ask the user for a file name, then load that file's contents.
- */
-function loadOther() {
-  var url = window.prompt('Enter URL of test file.');
-  if (!url) {
+    /**
+    * Run this test to load all of the tests in the selected suites. The contents
+    * will be loaded into the workspace in order. To test the generators:
+    * - select your language from the buttons above the text area
+    * - copy all of the generated code
+    * - run it in an interpreter of your choice
+    * - scan all of the results for "FAIL". All test suites are running in order,
+    * and each will report OK or FAIL based only on the tests in that suite.
+    * If some tests are failing, load test suites individually to continue
+    * debugging.
+    */
+    function loadSelected() {
+    var output = document.getElementById('importExport');
+    output.style.background = 'gray';
+
+    var loadingElem = document.getElementById('loading');
+    loadingElem.textContent = 'loading...';
+
+    // Clear before adding all of the com.deltarobotics9351.deltapanel.blocks.
+    demoWorkspace.clear();
+
+    var boxList = document.getElementsByClassName('suite_checkbox');
+    for (var i = 0; i < boxList.length; i++) {
+    if (boxList[i].checked) {
+    var testUrl = boxList[i].value;
+    if (testUrl) {
+    var xmlText = fetchFile(testUrl);
+    if (xmlText !== null) {
+    fromXml(testUrl, xmlText, /* opt_append */ true);
+    }
+    }
+    }
+    }
+    output.style.background = '';
+    loadingElem.textContent = 'done';
+    }
+
+    /**
+    * Ask the user for a file name, then load that file's contents.
+    */
+    function loadOther() {
+    var url = window.prompt('Enter URL of test file.');
+    if (!url) {
     return;
-  }
-  var xmlText = fetchFile(url);
-  if (xmlText !== null) {
+    }
+    var xmlText = fetchFile(url);
+    if (xmlText !== null) {
     fromXml(url, xmlText);
-  }
-}
+    }
+    }
 
-function fetchFile(xmlUrl) {
-  try {
+    function fetchFile(xmlUrl) {
+    try {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open('GET', xmlUrl, false);
     xmlHttp.setRequestHeader('Content-Type', 'text/xml');
     xmlHttp.send('');
-  } catch (e) {
+    } catch (e) {
     // Attempt to diagnose the problem.
     var msg = 'Error: Unable to load XML data.\n';
     if (window.location.protocol == 'file:') {
-      msg += 'This may be due to a security restriction preventing\n' +
-          'access when using the file:// protocol.\n' +
-          'Use an http webserver, or a less paranoid browser.\n';
+    msg += 'This may be due to a security restriction preventing\n' +
+    'access when using the file:// protocol.\n' +
+    'Use an http webserver, or a less paranoid browser.\n';
     }
     alert(msg + '\n' + e);
     return null;
-  }
-  return xmlHttp.responseText;
-}
+    }
+    return xmlHttp.responseText;
+    }
 
-/**
- * @param {string} filename The URL (or other name) of the XML, for reporting.
- * @param {string} xmlText The actual XML text.
- * @param {boolean=} opt_append True if the XML should be appended to the
- *     workspace.  Otherwise the workspace is cleared and the new XML is loaded.
- */
-function fromXml(filename, xmlText, opt_append) {
-  var output = document.getElementById('importExport');
-  output.value = xmlText;
-  output.scrollTop = 0;
-  output.scrollLeft = 0;
-  if (!opt_append) {
+    /**
+    * @param {string} filename The URL (or other name) of the XML, for reporting.
+    * @param {string} xmlText The actual XML text.
+    * @param {boolean=} opt_append True if the XML should be appended to the
+    * workspace. Otherwise the workspace is cleared and the new XML is loaded.
+    */
+    function fromXml(filename, xmlText, opt_append) {
+    var output = document.getElementById('importExport');
+    output.value = xmlText;
+    output.scrollTop = 0;
+    output.scrollLeft = 0;
+    if (!opt_append) {
     demoWorkspace.clear();
-  }
-  try {
+    }
+    try {
     var xmlDoc = Blockly.Xml.textToDom(xmlText);
     if (opt_append) {
-      Blockly.Xml.appendDomToWorkspace(xmlDoc, demoWorkspace);
+    Blockly.Xml.appendDomToWorkspace(xmlDoc, demoWorkspace);
     } else {
-      Blockly.Xml.domToWorkspace(xmlDoc, demoWorkspace);
+    Blockly.Xml.domToWorkspace(xmlDoc, demoWorkspace);
     }
-  } catch (e) {
+    } catch (e) {
     var msg = 'Error parsing XML: ' + filename + '\n\n\t' + e;
     if (e.stack) {
-      msg += '\n\nSee console for stack trace details.'
+    msg += '\n\nSee console for stack trace details.'
     }
     console.error(e.stack ? e : msg);
     alert(msg);
     return;
-  }
-}
+    }
+    }
 
-function checkAll() {
-  var boxList = document.getElementsByClassName('suite_checkbox');
-  for (var i = 0; i < boxList.length; i++) {
+    function checkAll() {
+    var boxList = document.getElementsByClassName('suite_checkbox');
+    for (var i = 0; i < boxList.length; i++) {
     boxList[i].checked = true;
-  }
-}
+    }
+    }
 
-function uncheckAll() {
-  var boxList = document.getElementsByClassName('suite_checkbox');
-  for (var i = 0; i < boxList.length; i++) {
+    function uncheckAll() {
+    var boxList = document.getElementsByClassName('suite_checkbox');
+    for (var i = 0; i < boxList.length; i++) {
     boxList[i].checked = false;
-  }
-}
+    }
+    }
 
-function setOutput(text) {
-  var output = document.getElementById('importExport');
-  output.value = text;
-  output.focus();
-  output.select();
-}
+    function setOutput(text) {
+    var output = document.getElementById('importExport');
+    output.value = text;
+    output.focus();
+    output.select();
+    }
 
-function toXml() {
-  var xmlDom = Blockly.Xml.workspaceToDom(demoWorkspace,
+    function toXml() {
+    var xmlDom = Blockly.Xml.workspaceToDom(demoWorkspace,
     /* opt_noId */ true);
-  var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-  xmlText = xmlText.replace(/ id="\d+"/g, '');
-  setOutput(xmlText);
-}
+    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+    xmlText = xmlText.replace(/ id="\d+"/g, '');
+    setOutput(xmlText);
+    }
 
-function toJavaScript() {
-  var code = '\'use strict\';\n\n'
-  code += Blockly.JavaScript.workspaceToCode(demoWorkspace);
-  setOutput(code);
-  outputCode = code;
-}
+    function toJavaScript() {
+    var code = '\'use strict\';\n\n'
+    code += Blockly.JavaScript.workspaceToCode(demoWorkspace);
+    setOutput(code);
+    outputCode = code;
+    }
 
-function toPython() {
-  var code = Blockly.Python.workspaceToCode(demoWorkspace);
-  setOutput(code);
-  outputCode = code;
-}
+    function toPython() {
+    var code = Blockly.Python.workspaceToCode(demoWorkspace);
+    setOutput(code);
+    outputCode = code;
+    }
 
-function toPhp() {
-  var code = Blockly.PHP.workspaceToCode(demoWorkspace);
-  setOutput(code);
-  outputCode = code;
-}
+    function toPhp() {
+    var code = Blockly.PHP.workspaceToCode(demoWorkspace);
+    setOutput(code);
+    outputCode = code;
+    }
 
-function toLua() {
-  var code = Blockly.Lua.workspaceToCode(demoWorkspace);
-  setOutput(code);
-  outputCode = code;
-}
+    function toLua() {
+    var code = Blockly.Lua.workspaceToCode(demoWorkspace);
+    setOutput(code);
+    outputCode = code;
+    }
 
-function toDart() {
-  var code = Blockly.Dart.workspaceToCode(demoWorkspace);
-  setOutput(code);
-  outputCode = code;
-}
+    function toDart() {
+    var code = Blockly.Dart.workspaceToCode(demoWorkspace);
+    setOutput(code);
+    outputCode = code;
+    }
 
-function changeIndex() {
-  var oneBasedIndex = document.getElementById('indexing').checked;
-  demoWorkspace.options.oneBasedIndex = oneBasedIndex;
-  demoWorkspace.getToolbox().flyout_.workspace_.options.oneBasedIndex = oneBasedIndex;
-}
+    function changeIndex() {
+    var oneBasedIndex = document.getElementById('indexing').checked;
+    demoWorkspace.options.oneBasedIndex = oneBasedIndex;
+    demoWorkspace.getToolbox().flyout_.workspace_.options.oneBasedIndex = oneBasedIndex;
+    }
 </script>
 
 <style>

@@ -1,4 +1,4 @@
-package blocks;
+package com.deltarobotics9351.deltapanel.blocks;
 
 import java.io.File;
 

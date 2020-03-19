@@ -1,4 +1,4 @@
-package blocks;
+package com.deltarobotics9351.deltapanel.blocks;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class BlocksManager {
         if(SAVE_BLOCKS_FOLDER.listFiles() != null){
             for(File f : SAVE_BLOCKS_FOLDER.listFiles()){
                 if(f.listFiles() == null){
-                    if(f.getName().endsWith(".blocks")){
+                    if(f.getName().endsWith(".com.deltarobotics9351.deltapanel.blocks")){
                         programsList.add(new BlocksProgram(f, "", ""));
                     }
                 }

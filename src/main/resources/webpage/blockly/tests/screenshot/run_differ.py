@@ -15,18 +15,18 @@
 # limitations under the License.
 
 # Usage:
-# run_differ.py with no parameters runs all screenshot tests with blocks in rtl
+# run_differ.py with no parameters runs all screenshot tests with com.deltarobotics9351.deltapanel.blocks in rtl
 # and not collapsed.
 # --name <test_name> runs all tests that contain the given name. If not given,
 #   runs all tests specified in test_cases.json.
-# --collapsed runs all tests with the blocks collapsed. If not given, blocks are
+# --collapsed runs all tests with the com.deltarobotics9351.deltapanel.blocks collapsed. If not given, com.deltarobotics9351.deltapanel.blocks are
 #  expanded.
-# --insertionMarker runs all tests with the blocks set as insertion markers. If
-#   not given then will default to normal blocks.
-# --inlineInputs runs all tests with the blocks set to have inline inputs. If
-#   not given then the blocks will be in their default state.
-# --externalInputs runs all tests with the with all blocks set to have external
-#   inputs. If not given then the blocks will be in their default state.
+# --insertionMarker runs all tests with the com.deltarobotics9351.deltapanel.blocks set as insertion markers. If
+#   not given then will default to normal com.deltarobotics9351.deltapanel.blocks.
+# --inlineInputs runs all tests with the com.deltarobotics9351.deltapanel.blocks set to have inline inputs. If
+#   not given then the com.deltarobotics9351.deltapanel.blocks will be in their default state.
+# --externalInputs runs all tests with the with all com.deltarobotics9351.deltapanel.blocks set to have external
+#   inputs. If not given then the com.deltarobotics9351.deltapanel.blocks will be in their default state.
 #
 
 import os, errno, platform, shutil, sys

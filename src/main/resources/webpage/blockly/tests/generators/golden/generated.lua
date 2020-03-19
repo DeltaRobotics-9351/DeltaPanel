@@ -415,7 +415,7 @@ function test_trig()
 end
 
 
--- Tests the "constant" blocks.
+-- Tests the "constant" com.deltarobotics9351.deltapanel.blocks.
 function test_constant()
   assertEquals(math.floor(math.pi * 1000), 3141, 'const pi')
   assertEquals(math.floor(math.exp(1) * 1000), 2718, 'const e')
@@ -445,7 +445,7 @@ function math_isPrime(n)
   return true
 end
 
--- Tests the "number property" blocks.
+-- Tests the "number property" com.deltarobotics9351.deltapanel.blocks.
 function test_number_properties()
   assertEquals(42 % 2 == 0, true, 'even')
   assertEquals(42.1 % 2 == 1, false, 'odd')
@@ -594,7 +594,7 @@ function first_index(t, elem)
   return 0
 end
 
--- Tests the "list operation" blocks.
+-- Tests the "list operation" com.deltarobotics9351.deltapanel.blocks.
 function test_operations_on_list()
   assertEquals(math_sum({3, 4, 5}), 12, 'sum')
   assertEquals(math_min({3, 4, 5}), 3, 'min')
@@ -1028,7 +1028,7 @@ function create_list_repeated(item, count)
   return t
 end
 
--- Tests the "create list with" and "create empty list" blocks.
+-- Tests the "create list with" and "create empty list" com.deltarobotics9351.deltapanel.blocks.
 function test_create_lists()
   assertEquals({}, {}, 'create empty')
   assertEquals({true, 'love'}, {true, 'love'}, 'create items')

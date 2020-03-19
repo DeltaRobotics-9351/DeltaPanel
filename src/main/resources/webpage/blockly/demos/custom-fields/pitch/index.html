@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Blockly Demo: Custom Pitch Field</title>
     <script src="../../../blockly_uncompressed.js"></script>
-    <script src="blocks.js"></script>
+    <script src="com.deltarobotics9351.deltapanel.blocks.js"></script>
     <script src="field_pitch.js"></script>
     <script src="../../../msg/js/en.js"></script>
     <style>
@@ -62,58 +62,58 @@
     </table>
 
     <script>
-      function toXml() {
+        function toXml() {
         var output = document.getElementById('importExport');
         var xml = Blockly.Xml.workspaceToDom(workspace);
         output.value = Blockly.Xml.domToPrettyText(xml);
         output.focus();
         output.select();
-      }
+        }
 
-      function fromXml() {
+        function fromXml() {
         var input = document.getElementById('importExport');
         var xml = Blockly.Xml.textToDom(input.value);
         Blockly.Xml.domToWorkspace(xml, workspace);
-      }
-
-      function appendDom() {
-        var blocks = document.getElementById('workspace-blocks');
-        if (blocks.firstElementChild) {
-          Blockly.Xml.appendDomToWorkspace(blocks, workspace);
         }
-      }
 
-      function start() {
+        function appendDom() {
+        var com.deltarobotics9351.deltapanel.blocks = document.getElementById('workspace-com.deltarobotics9351.deltapanel.blocks');
+        if (com.deltarobotics9351.deltapanel.blocks.firstElementChild) {
+        Blockly.Xml.appendDomToWorkspace(com.deltarobotics9351.deltapanel.blocks, workspace);
+        }
+        }
+
+        function start() {
         workspace = Blockly.inject('blocklyDiv', options);
         appendDom();
         workspace.scrollCenter();
-      }
+        }
 
-      var options = {
+        var options = {
         media: '../../../media/',
         grid: {
-          spacing: 25,
-          length: 3,
-          colour: '#ccc'
+        spacing: 25,
+        length: 3,
+        colour: '#ccc'
         },
         move: {
-          scrollbars: true,
-          drag: true,
-          wheel: true,
+        scrollbars: true,
+        drag: true,
+        wheel: true,
         },
         zoom: {
-          controls: true,
-          startScale: 1.0,
-          maxScale: 4,
-          minScale: 0.25,
-          scaleSpeed: 1.1
+        controls: true,
+        startScale: 1.0,
+        maxScale: 4,
+        minScale: 0.25,
+        scaleSpeed: 1.1
         }
         /*toolbox: document.getElementById('toolbox')*/
-      }
+        }
 
     </script>
 
-    <xml xmlns="https://developers.google.com/blockly/xml" id="workspace-blocks" style="display: none">
+    <xml xmlns="https://developers.google.com/blockly/xml" id="workspace-com.deltarobotics9351.deltapanel.blocks" style="display: none">
       <block type="test_pitch_field"></block>
     </xml>
   </body>

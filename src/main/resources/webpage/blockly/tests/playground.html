@@ -55,16 +55,16 @@
 <script src="../generators/dart/variables_dynamic.js"></script>
 <script src="../generators/dart/procedures.js"></script>
 <script src="../msg/messages.js"></script>
-<script src="../blocks/logic.js"></script>
-<script src="../blocks/loops.js"></script>
-<script src="../blocks/math.js"></script>
-<script src="../blocks/text.js"></script>
-<script src="../blocks/lists.js"></script>
-<script src="../blocks/colour.js"></script>
-<script src="../blocks/variables.js"></script>
-<script src="../blocks/variables_dynamic.js"></script>
-<script src="../blocks/procedures.js"></script>
-<script src="blocks/test_blocks.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/logic.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/loops.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/math.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/text.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/lists.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/colour.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/variables.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/variables_dynamic.js"></script>
+<script src="../com.deltarobotics9351.deltapanel.blocks/procedures.js"></script>
+<script src="com.deltarobotics9351.deltapanel.blocks/test_blocks.js"></script>
 <script src="./playgrounds/screenshot.js"></script>
 
 <script>
@@ -92,7 +92,7 @@ function start() {
       'toolbox-categories',
       'toolbox-categories-typed-variables',
       'toolbox-simple',
-      'toolbox-test-blocks'
+      'toolbox-test-com.deltarobotics9351.deltapanel.blocks'
   ];
   document.forms.options.elements.toolbox.selectedIndex =
       toolboxNames.indexOf(toolbox.id);
@@ -174,18 +174,18 @@ function start() {
 function addToolboxButtonCallbacks() {
   var addAllBlocksToWorkspace = function(button) {
     var workspace = button.getTargetWorkspace();
-    var blocks = button.workspace_.getTopBlocks();
-    for(var i = 0, block; block = blocks[i]; i++) {
+    var com.deltarobotics9351.deltapanel.blocks = button.workspace_.getTopBlocks();
+    for(var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       var xml = Blockly.utils.xml.createElement('xml');
       xml.appendChild(Blockly.Xml.blockToDom(block));
       Blockly.Xml.appendDomToWorkspace(xml, workspace);
     }
   };
   var randomizeLabelText = function(button) {
-    var blocks = button.targetWorkspace_
+    var com.deltarobotics9351.deltapanel.blocks = button.targetWorkspace_
         .getBlocksByType('test_fields_label_serializable');
     var possible = 'AB';
-    for (var i = 0, block; block = blocks[i]; i++) {
+    for (var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       var text = '';
       for (var j = 0; j < 4; j++) {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -194,37 +194,37 @@ function addToolboxButtonCallbacks() {
     }
   };
   var setRandomStyle = function(button) {
-    var blocks = button.workspace_.getAllBlocks(false);
+    var com.deltarobotics9351.deltapanel.blocks = button.workspace_.getAllBlocks(false);
     var styles =
         Object.keys(workspace.getRenderer().getConstants().blockStyles);
-    styles.splice(styles.indexOf(blocks[0].getStyleName()), 1);
+    styles.splice(styles.indexOf(com.deltarobotics9351.deltapanel.blocks[0].getStyleName()), 1);
     var style = styles[Math.floor(Math.random() * styles.length)];
-    for(var i = 0, block; block = blocks[i]; i++) {
+    for(var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       block.setStyle(style);
     }
   };
   var toggleEnabled = function(button) {
-    var blocks = button.workspace_.getAllBlocks(false);
-    for(var i = 0, block; block = blocks[i]; i++) {
+    var com.deltarobotics9351.deltapanel.blocks = button.workspace_.getAllBlocks(false);
+    for(var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       block.setEnabled(!block.isEnabled());
     }
   };
   var toggleShadow = function(button) {
-    var blocks = button.workspace_.getAllBlocks(false);
-    for(var i = 0, block; block = blocks[i]; i++) {
+    var com.deltarobotics9351.deltapanel.blocks = button.workspace_.getAllBlocks(false);
+    for(var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       block.setShadow(!block.isShadow());
     }
   };
   var toggleCollapsed = function(button) {
-    var blocks = button.workspace_.getAllBlocks(false);
-    for(var i = 0, block; block = blocks[i]; i++) {
+    var com.deltarobotics9351.deltapanel.blocks = button.workspace_.getAllBlocks(false);
+    for(var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       block.setCollapsed(!block.isCollapsed());
     }
   };
   var setInput = function(button) {
     Blockly.prompt('Input text to set.', 'ab', function(input) {
-      var blocks = button.getTargetWorkspace().getAllBlocks(false);
-      for(var i = 0, block; block = blocks[i]; i++) {
+      var com.deltarobotics9351.deltapanel.blocks = button.getTargetWorkspace().getAllBlocks(false);
+      for(var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
         if (block.getField('INPUT')) {
           block.setFieldValue(input, 'INPUT');
         }
@@ -232,12 +232,12 @@ function addToolboxButtonCallbacks() {
     })
   };
   var changeImage = function(button) {
-    var blocks = button.workspace_.getBlocksByType('test_fields_image');
+    var com.deltarobotics9351.deltapanel.blocks = button.workspace_.getBlocksByType('test_fields_image');
     var possible = 'abcdefghijklm';
     var image = possible.charAt(Math.floor(Math.random() * possible.length));
     var src = 'https://blockly-demo.appspot.com/static/tests/media/'
       + image + '.png';
-    for (var i = 0, block; block = blocks[i]; i++) {
+    for (var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
       var imageField = block.getField('IMAGE');
       imageField.setValue(src);
     }
@@ -462,8 +462,8 @@ function logger(e) {
 function airstrike(n) {
   var prototypes = [];
   var toolbox = getToolboxElement();
-  var blocks = toolbox.getElementsByTagName('block');
-  for (var i = 0, block; block = blocks[i]; i++) {
+  var com.deltarobotics9351.deltapanel.blocks = toolbox.getElementsByTagName('block');
+  for (var i = 0, block; block = com.deltarobotics9351.deltapanel.blocks[i]; i++) {
     prototypes.push(block.getAttribute('type'));
   }
   for (var i = 0; i < n; i++) {
@@ -583,7 +583,7 @@ var spaghettiXml = [
       <option value="categories">Categories (untyped variables)</option>
       <option value="categories-typed-variables">Categories (typed variables)</option>
       <option value="simple">Simple</option>
-      <option value="test-blocks">Test Blocks</option>
+      <option value="test-com.deltarobotics9351.deltapanel.blocks">Test Blocks</option>
     </select>
     <select name="side" onchange="document.forms.options.submit()">
       <option value="start">Start</option>
@@ -648,11 +648,11 @@ var spaghettiXml = [
   </ul>
 
 
-  <!-- The next three blocks of XML are sample toolboxes for testing basic
+  <!-- The next three com.deltarobotics9351.deltapanel.blocks of XML are sample toolboxes for testing basic
   configurations.  For more information on building toolboxes, see https://developers.google.com/blockly/guides/configure/web/toolbox -->
 
   <!-- toolbox-simple is an always-open flyout with no category menu.
-  Always-open flyouts are a good idea if you have a small number of blocks. -->
+  Always-open flyouts are a good idea if you have a small number of com.deltarobotics9351.deltapanel.blocks. -->
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox-simple" style="display: none">
     <block type="controls_ifelse"></block>
     <block type="logic_compare"></block>
@@ -680,7 +680,7 @@ var spaghettiXml = [
   </xml>
 
   <!-- toolbox-categories has a category menu and an auto-closing flyout.  The
-  Variables category uses untyped variable blocks.
+  Variables category uses untyped variable com.deltarobotics9351.deltapanel.blocks.
   See https://developers.google.com/blockly/guides/create-custom-blocks/variables#untyped_variable_blocks for more information. -->
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox-categories" style="display: none">
     <category name="Logic" categorystyle="logic_category">
@@ -1022,7 +1022,7 @@ var spaghettiXml = [
   </xml>
 
   <!-- toolbox-categories-typed-variables has a category menu and an
-  auto-closing flyout.  The Variables category uses typed variable blocks.
+  auto-closing flyout.  The Variables category uses typed variable com.deltarobotics9351.deltapanel.blocks.
   See https://developers.google.com/blockly/guides/create-custom-blocks/variables#typed_variable_blocks for more information. -->
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox-categories-typed-variables" style="display: none">
     <category name="Logic" categorystyle="logic_category">
@@ -1363,11 +1363,11 @@ var spaghettiXml = [
     <category name="Functions" categorystyle="procedure_category" custom="PROCEDURE"></category>
   </xml>
 
-  <!-- toolbox-test-blocks has a category menu and an auto-closing flyout.
-  The blocks in this toolbox reflect block configurations not used by
-  the standard predefined blocks, and so test alternative block rendering
+  <!-- toolbox-test-com.deltarobotics9351.deltapanel.blocks has a category menu and an auto-closing flyout.
+  The com.deltarobotics9351.deltapanel.blocks in this toolbox reflect block configurations not used by
+  the standard predefined com.deltarobotics9351.deltapanel.blocks, and so test alternative block rendering
   code paths. -->
-  <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox-test-blocks" style="display: none">
+  <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox-test-com.deltarobotics9351.deltapanel.blocks" style="display: none">
     <category name="Align">
       <block type="test_align_dummy_right"></block>
       <block type="test_align_all"></block>
@@ -1388,7 +1388,7 @@ var spaghettiXml = [
     </category>
     <category name="Connections" expanded="true">
       <category name="Row">
-        <label text="blocks have"></label>
+        <label text="com.deltarobotics9351.deltapanel.blocks have"></label>
         <sep gap="-1"></sep>
         <label text="tooltips"></label>
 
@@ -1414,7 +1414,7 @@ var spaghettiXml = [
         <block type="test_connections_multivalue_2valid"></block>
       </category>
       <category name="Stack">
-        <label text="blocks have"></label>
+        <label text="com.deltarobotics9351.deltapanel.blocks have"></label>
         <sep gap="-1"></sep>
         <label text="tooltips"></label>
 
@@ -1436,7 +1436,7 @@ var spaghettiXml = [
         </block>
       </category>
       <category name="Statement">
-        <label text="blocks have"></label>
+        <label text="com.deltarobotics9351.deltapanel.blocks have"></label>
         <sep gap="-1"></sep>
         <label text="tooltips"></label>
 
@@ -1537,7 +1537,7 @@ var spaghettiXml = [
     </category>
     <category name="Fields" expanded="true">
       <category name="Defaults">
-        <button text="add blocks to workspace" callbackKey="addAllBlocksToWorkspace"></button>
+        <button text="add com.deltarobotics9351.deltapanel.blocks to workspace" callbackKey="addAllBlocksToWorkspace"></button>
         <sep gap="8"></sep>
         <button text="set random style" callbackKey="setRandomStyle"></button>
         <sep gap="8"></sep>
@@ -1620,7 +1620,7 @@ var spaghettiXml = [
         </block>
       </category>
       <category name="Validators">
-        <button text="add blocks to workspace" callbackKey="addAllBlocksToWorkspace"></button>
+        <button text="add com.deltarobotics9351.deltapanel.blocks to workspace" callbackKey="addAllBlocksToWorkspace"></button>
         <sep gap="8"></sep>
         <button text="set input" callbackKey="setInput"></button>
         <label text="Angles"></label>

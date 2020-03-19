@@ -1,7 +1,7 @@
 # Blockly
 
 Google's Blockly is a web-based, visual programming editor.  Users can drag
-blocks together to build programs.  All code is free and open source.
+com.deltarobotics9351.deltapanel.blocks together to build programs.  All code is free and open source.
 
 The source for this module is in the [Blockly repo](http://github.com/google/blockly).
 
@@ -36,7 +36,7 @@ For samples on how to integrate Blockly into your project, view the list of samp
 ### Importing Blockly
 
 When you import Blockly with ``import * as Blockly from 'blockly';`` you'll get the default modules:
-Blockly core, Blockly built-in blocks, the JavaScript generator and the English lang files. 
+Blockly core, Blockly built-in com.deltarobotics9351.deltapanel.blocks, the JavaScript generator and the English lang files. 
 
 If you need more flexibility, you'll want to define your imports more carefully: 
 
@@ -46,14 +46,14 @@ If you need more flexibility, you'll want to define your imports more carefully:
 import * as Blockly from 'blockly/core';
 ```
 
-#### Blockly built in blocks
+#### Blockly built in com.deltarobotics9351.deltapanel.blocks
 
 ```js
-import 'blockly/blocks';
+import 'blockly/com.deltarobotics9351.deltapanel.blocks';
 ```
 
 #### Blockly Generators
-If your application needs to generate code from the Blockly blocks, you'll want to include a generator.
+If your application needs to generate code from the Blockly com.deltarobotics9351.deltapanel.blocks, you'll want to include a generator.
 
 ```js
 import 'blockly/python';

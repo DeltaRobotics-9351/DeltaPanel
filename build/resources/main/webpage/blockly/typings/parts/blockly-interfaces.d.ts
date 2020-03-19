@@ -40,7 +40,7 @@ declare module Blockly {
   }
 
   interface BlocklyThemeOptions {
-    blockStyles?: {[blocks: string]: Blockly.Theme.BlockStyle;};
+    blockStyles?: {[com.deltarobotics9351.deltapanel.blocks: string]: Blockly.Theme.BlockStyle;};
     categoryStyles?: {[category: string]: Blockly.Theme.CategoryStyle;};
     componentStyles?: {[component: string]: any;};
   }

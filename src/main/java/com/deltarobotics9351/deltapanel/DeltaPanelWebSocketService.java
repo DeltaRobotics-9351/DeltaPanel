@@ -1,6 +1,7 @@
-import blocks.BlocksManager;
-import blocks.BlocksProgram;
-import fi.iki.elonen.NanoHTTPD;
+package com.deltarobotics9351.deltapanel;
+
+import com.deltarobotics9351.deltapanel.blocks.BlocksManager;
+import com.deltarobotics9351.deltapanel.blocks.BlocksProgram;
 import fi.iki.elonen.NanoWSD;
 
 import java.io.File;
@@ -12,31 +13,35 @@ import java.text.SimpleDateFormat;
 public class DeltaPanelWebSocketService extends NanoWSD {
 
     int connections = 0;
+    int currentClients = 0;
+    static int clientConnectedInControlPanel = -1;
 
     public DeltaPanelWebSocketService() throws IOException {
         super(51);
         start(8000, false);
-        System.out.println("DeltaPanel: Started the DeltaPanelWebSocketService");
+        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Started the com.deltarobotics9351.deltapanel.DeltaPanelWebSocketService");
     }
 
     @Override
     protected WebSocket openWebSocket(IHTTPSession handshake) {
-        return new WsdSocket(handshake);
+        connections++; currentClients++; return new WsdSocket(handshake, connections);
     }
 
     private class WsdSocket extends WebSocket{
 
-        public WsdSocket(IHTTPSession handshakeRequest) {
-            super(handshakeRequest);
+        int clientID = 0;
+
+        public WsdSocket(IHTTPSession handshakeRequest, int id) {
+            super(handshakeRequest); clientID = id;
         }
+
+        public boolean isGamepadPingPonging = false;
 
         @Override
         protected void onOpen() {
-            connections++;
-
             try {
                 send("pong");
-                System.out.println("DeltaPanel: New WebSocket connection incoming");
+                System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: New WebSocket connection incoming");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -44,9 +49,16 @@ public class DeltaPanelWebSocketService extends NanoWSD {
 
         @Override
         protected void onClose(WebSocketFrame.CloseCode code, String reason, boolean initiatedByRemote) {
-            connections--;
-            System.out.println("DeltaPanel: WebSocket connection closed, " + code.toString() );
+            currentClients--;
+            System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: WebSocket connection closed, " + code.toString() );
+            if(isGamepadPingPonging){
+                DeltaPanel.panelGamepad1.update("unlinked");
+                DeltaPanel.panelGamepad2.update("unlinked");
+
+                clientConnectedInControlPanel = -1;
+            }
         }
+
 
         @Override
         protected void onMessage(WebSocketFrame message) {
@@ -54,9 +66,28 @@ public class DeltaPanelWebSocketService extends NanoWSD {
 
             if(message.getTextPayload().equalsIgnoreCase("ping")){
                 try {
+                    isGamepadPingPonging = false;
                     send("pong");
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+            }
+
+            if(message.getTextPayload().equalsIgnoreCase("ping:gamepad")){
+                if(clientConnectedInControlPanel == -1 || clientConnectedInControlPanel == clientID) {
+                    try {
+                        isGamepadPingPonging = true;
+                        clientConnectedInControlPanel = clientID;
+                        send("pong:gamepad");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    try {
+                        send("close:alreadyclient");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
@@ -67,7 +98,7 @@ public class DeltaPanelWebSocketService extends NanoWSD {
                 String id = args[1];
 
                 try {
-                    send("status:"+id+":" + DeltaPanelService.httpService.isAlive() + ";" + isAlive());
+                    send("status:"+id+":" + DeltaPanel.httpService.isAlive() + ";" + isAlive());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -76,7 +107,7 @@ public class DeltaPanelWebSocketService extends NanoWSD {
 
                 try {
                     close(WebSocketFrame.CloseCode.NormalClosure, "User requested close", true);
-                    DeltaPanelService.httpService.stop();
+                    DeltaPanel.httpService.stop();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -128,7 +159,7 @@ public class DeltaPanelWebSocketService extends NanoWSD {
                     String id = args[1];
 
                     try {
-                        send("users:"+id+":"+connections);
+                        send("users:"+id+":"+currentClients);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -162,17 +193,17 @@ public class DeltaPanelWebSocketService extends NanoWSD {
 
                 }else if(message.getTextPayload().startsWith("gamepadA:")){
 
-                    String data = message.getTextPayload().replace("gamepadA:", "");
+                    if(!isGamepadPingPonging) return;
 
-                    System.out.println("Just received Gamepad A data =)");
-                    System.out.println(data);
+                    String data = message.getTextPayload().replace("gamepadA:", "");
+                    DeltaPanel.panelGamepad1.update(data);
 
                 }else if(message.getTextPayload().startsWith("gamepadB:")){
 
-                    String data = message.getTextPayload().replace("gamepadB:", "");
+                    if(!isGamepadPingPonging) return;
 
-                    System.out.println("Just received Gamepad B data =)");
-                    System.out.println(data);
+                    String data = message.getTextPayload().replace("gamepadB:", "");
+                    DeltaPanel.panelGamepad2.update(data);
 
                 }else{
                     try {

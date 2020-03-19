@@ -18,7 +18,7 @@ blockly/
  |- storage.py
  |- closure-library/  (Optional)
  `- static/
-     |- blocks/
+     |- com.deltarobotics9351.deltapanel.blocks/
      |- core/
      |- demos/
      |- generators/

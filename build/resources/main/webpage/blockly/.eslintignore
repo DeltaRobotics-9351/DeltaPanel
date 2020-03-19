@@ -3,7 +3,7 @@
 gulpfile.js
 /msg/*
 /core/utils/global.js
-/tests/blocks/*
+/tests/com.deltarobotics9351.deltapanel.blocks/*
 /tests/compile/*
 /tests/jsunit/*
 /tests/generators/*

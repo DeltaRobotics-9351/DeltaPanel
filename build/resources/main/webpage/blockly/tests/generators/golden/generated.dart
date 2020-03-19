@@ -406,7 +406,7 @@ void test_trig() {
   unittest_assertequals(Math.atan(1) / Math.pi * 180, 45, 'atan');
 }
 
-/// Tests the "constant" blocks.
+/// Tests the "constant" com.deltarobotics9351.deltapanel.blocks.
 void test_constant() {
   unittest_assertequals((Math.pi * 1000).floor(), 3141, 'const pi');
   unittest_assertequals((Math.e * 1000).floor(), 2718, 'const e');
@@ -435,7 +435,7 @@ bool math_isPrime(n) {
   return true;
 }
 
-/// Tests the "number property" blocks.
+/// Tests the "number property" com.deltarobotics9351.deltapanel.blocks.
 void test_number_properties() {
   unittest_assertequals(42 % 2 == 0, true, 'even');
   unittest_assertequals(42.1 % 2 == 1, false, 'odd');
@@ -555,7 +555,7 @@ dynamic math_random_item(List myList) {
   return myList[x];
 }
 
-/// Tests the "list operation" blocks.
+/// Tests the "list operation" com.deltarobotics9351.deltapanel.blocks.
 void test_operations_on_list() {
   unittest_assertequals(math_sum([3, 4, 5]), 12, 'sum');
   unittest_assertequals(math_min([3, 4, 5]), 3, 'min');
@@ -944,7 +944,7 @@ void check_number_of_calls2(test_name) {
   unittest_assertequals(number_of_calls, 1, test_name);
 }
 
-/// Tests the "create list with" and "create empty list" blocks.
+/// Tests the "create list with" and "create empty list" com.deltarobotics9351.deltapanel.blocks.
 void test_create_lists() {
   unittest_assertequals([], [], 'create empty');
   unittest_assertequals([true, 'love'], [true, 'love'], 'create items');

@@ -2,7 +2,7 @@
 
 
 Google's Blockly is a web-based, visual programming editor.  Users can drag
-blocks together to build programs.  All code is free and open source.
+com.deltarobotics9351.deltapanel.blocks together to build programs.  All code is free and open source.
 
 **The project page is https://developers.google.com/blockly/**
 

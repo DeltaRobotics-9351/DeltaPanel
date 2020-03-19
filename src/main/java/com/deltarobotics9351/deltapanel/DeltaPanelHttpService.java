@@ -1,3 +1,5 @@
+package com.deltarobotics9351.deltapanel;
+
 import fi.iki.elonen.NanoHTTPD;
 
 import java.io.IOException;
@@ -13,7 +15,7 @@ public class DeltaPanelHttpService extends NanoHTTPD {
     public DeltaPanelHttpService() throws IOException {
         super(93);
         start(8000, false);
-        System.out.println("DeltaPanel: Started the DeltaPanelHttpService");
+        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Started the com.deltarobotics9351.deltapanel.DeltaPanelHttpService");
     }
 
     public int requestNo = 0;
@@ -29,12 +31,12 @@ public class DeltaPanelHttpService extends NanoHTTPD {
 
         Map<String, List<String>> params = session.getParameters();
 
-        System.out.println("DeltaPanel: Incoming request from " + session.getRemoteIpAddress() + " (#" + currRequestNo + ")");
+        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Incoming request from " + session.getRemoteIpAddress() + " (#" + currRequestNo + ")");
 
         String uri = session.getUri();
         String response = "";
 
-        System.out.println("DeltaPanel: Remote requested " + uri + " (#" + currRequestNo + ")");
+        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Remote requested " + uri + " (#" + currRequestNo + ")");
 
 
         InputStream requestedResource = null;
@@ -45,12 +47,12 @@ public class DeltaPanelHttpService extends NanoHTTPD {
         }
 
         if(requestedResource == null && (uri.endsWith(".js") || uri.endsWith(".css"))){
-            System.out.println("DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
+            System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newFixedLengthResponse("");
         }
 
         if(requestedResource == null ){
-            System.out.println("DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
+            System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newFixedLengthResponse("<meta http-equiv = \"refresh\" content = \"2; /home.html\" /> 404 Not Found. Redirecting to home page...");
         }
 
@@ -80,7 +82,7 @@ public class DeltaPanelHttpService extends NanoHTTPD {
             return newFixedLengthResponse(Response.Status.OK, "text/css", response);
         }
 
-        System.out.println("DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
+        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
 
         return newFixedLengthResponse(response);
     }

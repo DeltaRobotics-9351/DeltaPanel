@@ -437,7 +437,7 @@ function test_trig() {
   assertEquals(atan(1) / pi() * 180, 45, 'atan');
 }
 
-// Tests the "constant" blocks.
+// Tests the "constant" com.deltarobotics9351.deltapanel.blocks.
 function test_constant() {
   global $test_name, $naked, $proc_x, $proc_y, $func_x, $func_y, $func_a, $n, $ok, $log, $count, $varToChange, $rand, $item, $text, $number_of_calls, $list2, $proc_z, $func_z, $x, $proc_w, $func_c, $if2, $i, $loglist, $changing_list, $list_copy, $unittestResults;
   assertEquals(floor(M_PI * 1000), 3141, 'const pi');
@@ -467,7 +467,7 @@ function math_isPrime($n) {
   return true;
 }
 
-// Tests the "number property" blocks.
+// Tests the "number property" com.deltarobotics9351.deltapanel.blocks.
 function test_number_properties() {
   global $test_name, $naked, $proc_x, $proc_y, $func_x, $func_y, $func_a, $n, $ok, $log, $count, $varToChange, $rand, $item, $text, $number_of_calls, $list2, $proc_z, $func_z, $x, $proc_w, $func_c, $if2, $i, $loglist, $changing_list, $list_copy, $unittestResults;
   assertEquals(42 % 2 == 0, true, 'even');
@@ -535,7 +535,7 @@ function indexOf($haystack, $needle) {
   return  0;
 }
 
-// Tests the "list operation" blocks.
+// Tests the "list operation" com.deltarobotics9351.deltapanel.blocks.
 function test_operations_on_list() {
   global $test_name, $naked, $proc_x, $proc_y, $func_x, $func_y, $func_a, $n, $ok, $log, $count, $varToChange, $rand, $item, $text, $number_of_calls, $list2, $proc_z, $func_z, $x, $proc_w, $func_c, $if2, $i, $loglist, $changing_list, $list_copy, $unittestResults;
   assertEquals(array_sum((array(3, 4, 5))), 12, 'sum');
@@ -941,7 +941,7 @@ function lists_repeat($value, $count) {
   return $array;
 }
 
-// Tests the "create list with" and "create empty list" blocks.
+// Tests the "create list with" and "create empty list" com.deltarobotics9351.deltapanel.blocks.
 function test_create_lists() {
   global $test_name, $naked, $proc_x, $proc_y, $func_x, $func_y, $func_a, $n, $ok, $log, $count, $varToChange, $rand, $item, $text, $number_of_calls, $list2, $proc_z, $func_z, $x, $proc_w, $func_c, $if2, $i, $loglist, $changing_list, $list_copy, $unittestResults;
   assertEquals(array(), array(), 'create empty');

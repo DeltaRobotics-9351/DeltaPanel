@@ -363,7 +363,7 @@ def test_trig():
   assertEquals(math.acos(1) / math.pi * 180, 0, 'acos')
   assertEquals(math.atan(1) / math.pi * 180, 45, 'atan')
 
-# Tests the "constant" blocks.
+# Tests the "constant" com.deltarobotics9351.deltapanel.blocks.
 def test_constant():
   global test_name, naked, proc_x, proc_y, func_x, func_y, func_a, n, ok, log, count, varToChange, rand, item, text, number_of_calls, list2, proc_z, func_z, x, proc_w, func_c, if2, i, loglist, changing_list, list_copy, unittestResults
   assertEquals(math.floor(math.pi * 1000), 3141, 'const pi')
@@ -392,7 +392,7 @@ def math_isPrime(n):
       return False
   return True
 
-# Tests the "number property" blocks.
+# Tests the "number property" com.deltarobotics9351.deltapanel.blocks.
 def test_number_properties():
   global test_name, naked, proc_x, proc_y, func_x, func_y, func_a, n, ok, log, count, varToChange, rand, item, text, number_of_calls, list2, proc_z, func_z, x, proc_w, func_c, if2, i, loglist, changing_list, list_copy, unittestResults
   assertEquals(42 % 2 == 0, True, 'even')
@@ -464,7 +464,7 @@ def first_index(my_list, elem):
   except: index = 0
   return index
 
-# Tests the "list operation" blocks.
+# Tests the "list operation" com.deltarobotics9351.deltapanel.blocks.
 def test_operations_on_list():
   global test_name, naked, proc_x, proc_y, func_x, func_y, func_a, n, ok, log, count, varToChange, rand, item, text, number_of_calls, list2, proc_z, func_z, x, proc_w, func_c, if2, i, loglist, changing_list, list_copy, unittestResults
   assertEquals(sum([3, 4, 5]), 12, 'sum')
@@ -789,7 +789,7 @@ def check_number_of_calls2(test_name):
   test_name = str(test_name) + 'number of calls'
   assertEquals(number_of_calls, 1, test_name)
 
-# Tests the "create list with" and "create empty list" blocks.
+# Tests the "create list with" and "create empty list" com.deltarobotics9351.deltapanel.blocks.
 def test_create_lists():
   global test_name, naked, proc_x, proc_y, func_x, func_y, func_a, n, ok, log, count, varToChange, rand, item, text, number_of_calls, list2, proc_z, func_z, x, proc_w, func_c, if2, i, loglist, changing_list, list_copy, unittestResults
   assertEquals([], [], 'create empty')

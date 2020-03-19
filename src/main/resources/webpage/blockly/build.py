@@ -34,7 +34,7 @@
 # cycle since there is no need to rebuild or recompile, just reload.
 #
 # This script also generates:
-#   blocks_compressed.js: The compressed Blockly language blocks.
+#   blocks_compressed.js: The compressed Blockly language com.deltarobotics9351.deltapanel.blocks.
 #   javascript_compressed.js: The compressed JavaScript generator.
 #   python_compressed.js: The compressed Python generator.
 #   php_compressed.js: The compressed PHP generator.
@@ -240,7 +240,7 @@ goog.provide('Blockly.Mutator');
 goog.provide('Blockly.Warning');
 """))
     # Read in all the source files.
-    filenames = glob.glob(os.path.join("blocks", "*.js"))
+    filenames = glob.glob(os.path.join("com.deltarobotics9351.deltapanel.blocks", "*.js"))
     filenames.sort()  # Deterministic build.
     for filename in filenames:
       f = codecs.open(filename, encoding="utf-8")
