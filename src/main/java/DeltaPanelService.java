@@ -8,14 +8,18 @@ public class DeltaPanelService {
     public static DeltaPanelWebSocketService webSocketService;
     public static Thread serviceThread;
 
+    private static boolean initialized = false;
 
     public static void main(String[] args){
-        serviceThread = new Thread(new ServiceThread());
+        if(initialized) return;
+
+        initialized = true;
+        serviceThread = new Thread(new ServiceRunnable());
         serviceThread.start();
         BlocksManager.update();
     }
 
-    static class ServiceThread implements Runnable {
+    static class ServiceRunnable implements Runnable {
 
         @Override
         public void run() {

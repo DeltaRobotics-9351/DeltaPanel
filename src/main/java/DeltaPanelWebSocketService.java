@@ -51,7 +51,6 @@ public class DeltaPanelWebSocketService extends NanoWSD {
         @Override
         protected void onMessage(WebSocketFrame message) {
             message.setUnmasked();
-            //message.
 
             if(message.getTextPayload().equalsIgnoreCase("ping")){
                 try {
@@ -61,8 +60,7 @@ public class DeltaPanelWebSocketService extends NanoWSD {
                 }
             }
 
-
-                if(message.getTextPayload().startsWith("status:")){
+            if(message.getTextPayload().startsWith("status:")){
 
                 String[] args = message.getTextPayload().split(":");
 
@@ -161,6 +159,21 @@ public class DeltaPanelWebSocketService extends NanoWSD {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+                }else if(message.getTextPayload().startsWith("gamepadA:")){
+
+                    String data = message.getTextPayload().replace("gamepadA:", "");
+
+                    System.out.println("Just received Gamepad A data =)");
+                    System.out.println(data);
+
+                }else if(message.getTextPayload().startsWith("gamepadB:")){
+
+                    String data = message.getTextPayload().replace("gamepadB:", "");
+
+                    System.out.println("Just received Gamepad B data =)");
+                    System.out.println(data);
+
                 }else{
                     try {
                         send("unknown");

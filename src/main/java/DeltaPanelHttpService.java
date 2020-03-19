@@ -39,7 +39,6 @@ public class DeltaPanelHttpService extends NanoHTTPD {
 
         InputStream requestedResource = null;
         if(uri.trim().equals("/")){
-
             requestedResource = DeltaPanelHttpService.class.getResourceAsStream("/webpage/home.html");
         } else {
             requestedResource = DeltaPanelHttpService.class.getResourceAsStream("/webpage" +uri);

@@ -40,7 +40,7 @@ socket.onmessage = function(event) {
     var split = event.data.split(":");
     document.getElementById("users_amount").innerHTML = "Connected clients: " + split[2];
 
-    socket.send("users:7649");
+    setTimeout(function(){ socket.send("users:7649"); }, 2000);
 
   }else if(event.data.startsWith("blocksProgramsList:7649")){
         var split = event.data.split(":");
@@ -79,7 +79,7 @@ socket.onmessage = function(event) {
 
             document.getElementById("blocksProgramsTable").innerHTML = s;
 
-       socket.send("blocksProgramsList:7649");
+       setTimeout(function(){ socket.send("blocksProgramsList:7649"); }, 2000);
   }else{
     var split = event.data.split(":");
 
@@ -101,7 +101,7 @@ socket.onclose = function(event) {
     // e.g. server process killed or network down
     // event.code is usually 1006 in this case
     document.getElementById("socket_status").innerHTML = "Disconnected unexpectedly";
-    location.reload();
+    location.reload(true);
   }
 };
 

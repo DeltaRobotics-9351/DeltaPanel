@@ -1,0 +1,38 @@
+
+        .containerG{
+            width: 85%;
+            margin: -30px;
+            overflow: hidden;
+            margin-top: 200px;
+            position: absolute;
+        }
+
+        .containerG ul{
+            padding: 0px;
+            margin: 0px
+        }
+
+        .containerG ul li{
+            float: left;
+            list-style: none;
+            width: 20%;
+            height: 185px;
+            background: #f1f1f1;
+            margin: 10px 0px 10px 45px;
+            border: 2px;
+            box-sizing: border-box;
+            padding-left: 25px;
+        }
+
+        .containerG ul li:hover{
+             background:#f4f4f4;
+       }
+
+       @media screen and (max-width:1250px){
+            .containerG ul li{
+                width: 35%;
+                height: 30%;
+                margin-left: 10px;
+                margin-top: 70px;
+            }
+       }

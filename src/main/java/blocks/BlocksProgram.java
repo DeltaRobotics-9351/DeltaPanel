@@ -8,12 +8,12 @@ public class BlocksProgram {
 
     public String PROGRAM_AS_XML = "";
 
-    public String PROGRAM_AS_DELTASCRIPT = "";
+    public String PROGRAM_AS_JAVASCRIPT = "";
 
-    public BlocksProgram(File BLOCKS_PROGRAM_FILE, String PROGRAM_AS_XML, String PROGRAM_AS_DELTASCRIPT){
+    public BlocksProgram(File BLOCKS_PROGRAM_FILE, String PROGRAM_AS_XML, String PROGRAM_AS_JAVASCRIPT){
         this.BLOCKS_PROGRAM_FILE = BLOCKS_PROGRAM_FILE;
         this.PROGRAM_AS_XML = PROGRAM_AS_XML;
-        this.PROGRAM_AS_DELTASCRIPT = PROGRAM_AS_DELTASCRIPT;
+        this.PROGRAM_AS_JAVASCRIPT = PROGRAM_AS_JAVASCRIPT;
     }
 
 
