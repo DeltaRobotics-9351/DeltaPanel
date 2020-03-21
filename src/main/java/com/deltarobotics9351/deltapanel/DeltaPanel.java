@@ -2,9 +2,15 @@ package com.deltarobotics9351.deltapanel;
 
 import com.deltarobotics9351.deltapanel.blocks.BlocksManager;
 import com.deltarobotics9351.deltapanel.gamepad.PanelGamepad;
+import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
+import com.qualcomm.robotcore.eventloop.opmode.OpModeRegistrar;
+import org.firstinspires.ftc.robotcore.internal.opmode.OpModeMeta;
+import org.firstinspires.ftc.robotcore.internal.opmode.RegisteredOpModes;
 
-import javax.swing.*;
+import static com.deltarobotics9351.deltapanel.DeltaLogger.*;
+
 import java.io.IOException;
+import java.util.HashMap;
 
 public class DeltaPanel {
 
@@ -12,41 +18,42 @@ public class DeltaPanel {
     public static DeltaPanelWebSocketService webSocketService;
     public static Thread serviceThread;
 
+    public static HashMap<String, OpModeMeta.Flavor> opModeList = new HashMap();
+
+    public static boolean performUnsafeSdkOperations = false;
+
     public static boolean initialized = false;
 
     public static final PanelGamepad panelGamepad1 = new PanelGamepad();
 
     public static final PanelGamepad panelGamepad2 = new PanelGamepad();
 
-    public static JTextArea textfield1 = new JTextArea("bruh");
-
-    public static void main(String[] args){
-        final JFrame frame = new JFrame("JTextArea Demo");
-        frame.setSize(frame.getWidth() + 40, frame.getHeight() );
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        final JPanel panel = new JPanel();
-
-        //textfield1.setFont(new Font("Serif", Font.ITALIC, 16));
-        textfield1.setLineWrap(true);
-        textfield1.setWrapStyleWord(true);
-        textfield1.setOpaque(false);
-        textfield1.setEditable(false);
-
-        panel.add(textfield1);
-        frame.add(panel);
-        frame.pack();
-        frame.setVisible(true);
-
-        initialize();
+    public static void main(String[] args){ //for running this on a computer OS
+        initialize(null);
     }
 
-    public static void initialize(){
+    private static boolean checkForSdk(){ //check if we'll be able to perfom "unsafe" sdk operations, by unsafe I mean operations that can't be made outside an Android context
+        try {
+            RegisteredOpModes.getInstance(); //this operation for some reason can't be done without an android activity, so we'll use this.
+        }catch(NoClassDefFoundError e){
+            return false;
+        }
+        return true;
+    }
+
+    @OpModeRegistrar
+    public static void initialize(OpModeManager manager){
+        performUnsafeSdkOperations = checkForSdk(); //check if sdk is present (for testing purposes on a computer OS)
+
+        logInfo(performUnsafeSdkOperations ? "SDK is present" : "SDK is not present");
+
         if(initialized) return;
 
         initialized = true;
+
         serviceThread = new Thread(new ServiceRunnable());
         serviceThread.start();
+
         BlocksManager.update();
     }
 
@@ -58,19 +65,24 @@ public class DeltaPanel {
                 httpService = new DeltaPanelHttpService();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Unable to start com.deltarobotics9351.deltapanel.DeltaPanelHttpService");
+                logSevere("Unable to start DeltaPanelHttpService");
             }
 
             try {
                 webSocketService = new DeltaPanelWebSocketService();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Unable to start com.deltarobotics9351.deltapanel.DeltaPanelHttpService");
+                logSevere("Unable to start DeltaPanelWebSocketService");
             }
 
-            while(true){
-                DeltaPanel.textfield1.setText(DeltaPanel.panelGamepad2.toString());
-            }
+            if(!performUnsafeSdkOperations) return; //if we're not able to perform "unsafe" sdk operations, end this thread here
+
+             RegisteredOpModes.getInstance().waitOpModesRegistered();
+             synchronized (opModeList) {
+                 for (OpModeMeta opModeMeta : RegisteredOpModes.getInstance().getOpModes()) {
+                     opModeList.put(opModeMeta.name, opModeMeta.flavor);
+                 }
+             }
 
         }
     }

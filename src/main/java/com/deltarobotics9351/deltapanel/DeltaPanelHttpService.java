@@ -2,6 +2,8 @@ package com.deltarobotics9351.deltapanel;
 
 import fi.iki.elonen.NanoHTTPD;
 
+import static com.deltarobotics9351.deltapanel.DeltaLogger.*;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -15,7 +17,7 @@ public class DeltaPanelHttpService extends NanoHTTPD {
     public DeltaPanelHttpService() throws IOException {
         super(93);
         start(8000, false);
-        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Started the com.deltarobotics9351.deltapanel.DeltaPanelHttpService");
+        logInfo("Started the DeltaPanelHttpService");
     }
 
     public int requestNo = 0;
@@ -31,13 +33,12 @@ public class DeltaPanelHttpService extends NanoHTTPD {
 
         Map<String, List<String>> params = session.getParameters();
 
-        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Incoming request from " + session.getRemoteIpAddress() + " (#" + currRequestNo + ")");
+        logInfo("Incoming request from " + session.getRemoteIpAddress() + " (#" + currRequestNo + ")");
 
         String uri = session.getUri();
         String response = "";
 
-        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Remote requested " + uri + " (#" + currRequestNo + ")");
-
+        logInfo("Remote requested " + uri + " (#" + currRequestNo + ")");
 
         InputStream requestedResource = null;
         if(uri.trim().equals("/")){
@@ -47,42 +48,48 @@ public class DeltaPanelHttpService extends NanoHTTPD {
         }
 
         if(requestedResource == null && (uri.endsWith(".js") || uri.endsWith(".css"))){
-            System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newFixedLengthResponse("");
         }
 
         if(requestedResource == null ){
-            System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newFixedLengthResponse("<meta http-equiv = \"refresh\" content = \"2; /home.html\" /> 404 Not Found. Redirecting to home page...");
         }
 
         if(uri.endsWith(".jpg")){
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newChunkedResponse(Response.Status.OK, "image/jpeg", requestedResource);
         }
 
         if(uri.endsWith(".mp3")){
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newChunkedResponse(Response.Status.OK, "audio/mpeg", requestedResource);
         }
 
         if(uri.endsWith(".png")){
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newChunkedResponse(Response.Status.OK, "image/png", requestedResource);
         }
 
         if(uri.endsWith(".ico")){
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newChunkedResponse(Response.Status.OK, "image/ico", requestedResource);
         }
 
         response = streamToString(requestedResource);
 
         if(uri.endsWith(".js")){
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newFixedLengthResponse(Response.Status.OK, "text/javascript", response);
         }
 
         if(uri.endsWith(".css")){
+            logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
             return newFixedLengthResponse(Response.Status.OK, "text/css", response);
         }
 
-        System.out.println("com.deltarobotics9351.deltapanel.DeltaPanel: Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
+        logInfo("Connection closed. Took " + String.valueOf(System.currentTimeMillis() - startMillis) + " ms" + " (#" + currRequestNo + ")");
 
         return newFixedLengthResponse(response);
     }

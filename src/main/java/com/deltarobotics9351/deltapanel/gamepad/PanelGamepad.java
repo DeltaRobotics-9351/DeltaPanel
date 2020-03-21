@@ -1,6 +1,6 @@
 package com.deltarobotics9351.deltapanel.gamepad;
 
-import com.deltarobotics9351.deltapanel.DeltaPanel;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 import java.lang.reflect.Field;
 
@@ -34,7 +34,17 @@ public class PanelGamepad {
     public double LEFT_TRIGGER = 0;
     public double RIGHT_TRIGGER = 0;
 
-    public PanelGamepad(){ }
+    private Gamepad sdkGamepad = new Gamepad();
+
+    private Thread updateSdkGamepadThread = new Thread(new SdkGamepadUpdater());
+
+    public PanelGamepad(){ updateSdkGamepadThread.start(); }
+
+    /**
+     * WARNING: This is an internal library function, it should not be used in your Team Code
+     * The only members of this class you need to use are the UPPER CASE variables.
+     */
+    public void interruptUpdateSdkThread(){ updateSdkGamepadThread.interrupt(); }
 
     /**
      * WARNING: This is an internal library function, it should not be used in your Team Code
@@ -44,7 +54,7 @@ public class PanelGamepad {
 
         if(data.trim().equalsIgnoreCase("unlinked")){
             try {
-                setEverythingtoFalseOrZero();
+                setEverythingToFalseOrZero();
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
@@ -77,7 +87,7 @@ public class PanelGamepad {
 
         //------------ DEFINE PUBLIC VARIABLES ------------
 
-        //the following part of the code defines the booleans and doubles public variables, the location of each value in the arrays were discovered by testing with a real com.deltarobotics9351.deltapanel.gamepad and watching which of the boolean/doubles changed when an specific button was pressed
+        //the following part of the code defines the booleans and doubles public variables, the location of each value in the arrays were discovered by testing with a real gamepad and watching which of the boolean/doubles changed when an specific button was pressed
 
         A = buttons[0];
         B = buttons[1];
@@ -109,6 +119,8 @@ public class PanelGamepad {
 
     }
 
+    public Gamepad toSdkGamepad(){ return sdkGamepad; }
+
     public String toString() {
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
@@ -137,7 +149,7 @@ public class PanelGamepad {
         return result.toString();
     }
 
-    private void setEverythingtoFalseOrZero() throws IllegalAccessException {
+    private void setEverythingToFalseOrZero() throws IllegalAccessException {
         Field[] fields = this.getClass().getDeclaredFields();
 
         for ( Field field : fields ) {
@@ -145,6 +157,37 @@ public class PanelGamepad {
                 field.set(this, 0);
             }else if(field.getType() == boolean.class){
                 field.set(this, false);
+            }
+        }
+
+    }
+
+    private class SdkGamepadUpdater implements Runnable{
+
+        @Override
+        public void run() {
+            while(!Thread.interrupted()){
+                sdkGamepad.left_stick_x = (float)LEFT_STICK_X;
+                sdkGamepad.left_stick_y = (float)LEFT_STICK_Y;
+                sdkGamepad.right_stick_x = (float)RIGHT_STICK_X;
+                sdkGamepad.right_stick_y = (float)RIGHT_STICK_Y;
+                sdkGamepad.dpad_up = DPAD_UP;
+                sdkGamepad.dpad_down = DPAD_DOWN;
+                sdkGamepad.dpad_left = DPAD_LEFT;
+                sdkGamepad.dpad_right = DPAD_RIGHT;
+                sdkGamepad.a = A;
+                sdkGamepad.b = B;
+                sdkGamepad.x = X;
+                sdkGamepad.y = Y;
+                sdkGamepad.guide = false; //srry man, wasnt able to find out which button index was this one
+                sdkGamepad.start = START;
+                sdkGamepad.back = SELECT;
+                sdkGamepad.left_bumper = LEFT_BUMPER;
+                sdkGamepad.right_bumper = RIGHT_BUMPER;
+                sdkGamepad.left_stick_button = LEFT_STICK_BUTTON;
+                sdkGamepad.right_stick_button = RIGHT_STICK_BUTTON;
+                sdkGamepad.left_trigger = (float)LEFT_TRIGGER;
+                sdkGamepad.right_trigger = (float)RIGHT_TRIGGER;
             }
         }
 

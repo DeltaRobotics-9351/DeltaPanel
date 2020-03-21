@@ -8,13 +8,28 @@ version 'BETA'
 sourceCompatibility = 1.8
 
 repositories {
+
+    flatDir{
+        dirs '/libs'
+    }
+
     mavenCentral()
     google()
     jcenter()
-
 }
 
 dependencies {
+
+    runtime(
+            [group: 'org.nanohttpd', name: 'nanohttpd', version: '2.3.1']
+    )
+
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation 'org.nanohttpd:nanohttpd-websocket:2.3.1'
+
+    implementation fileTree(dir: 'libs', include: ['aar'])
+    implementation (name: 'FtcCommon-release', ext: 'aar')
+    implementation (name: 'Hardware-release', ext: 'aar')
+    implementation (name: 'RobotCore-release', ext: 'aar')
+
 }
