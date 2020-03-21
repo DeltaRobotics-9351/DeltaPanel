@@ -10,7 +10,7 @@ sourceCompatibility = 1.8
 repositories {
 
     flatDir{
-        dirs '/libs'
+        dirs 'libs/'
     }
 
     mavenCentral()
